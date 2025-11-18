@@ -1,0 +1,253 @@
+═══════════════════════════════════════════════════════════════════════
+🎯 RESUMEN RÁPIDO: DÓNDE PONER TUS APIs
+═══════════════════════════════════════════════════════════════════════
+
+Este es un resumen rápido. Para instrucciones detalladas paso a paso,
+lee el archivo: INSTRUCCIONES-APIS.txt
+
+═══════════════════════════════════════════════════════════════════════
+📍 ARCHIVO: .env.local (EN LA RAÍZ DEL PROYECTO)
+═══════════════════════════════════════════════════════════════════════
+
+Crea este archivo en la raíz (al mismo nivel que package.json) y pega:
+
+# ═══════════════════════════════════════════════════════════════════
+# 📧 EMAILJS
+# ═══════════════════════════════════════════════════════════════════
+# Obtén estas claves en: https://dashboard.emailjs.com/admin/account
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=tu_public_key_aqui
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_abc123
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_xyz789
+NEXT_PUBLIC_CONTACT_EMAIL=tuempresa@gmail.com
+
+# ═══════════════════════════════════════════════════════════════════
+# 📊 GOOGLE SHEETS (Opción Simple con Apps Script)
+# ═══════════════════════════════════════════════════════════════════
+# Esta URL la obtienes después de desplegar el Apps Script
+NEXT_PUBLIC_APPS_SCRIPT_URL=https://script.google.com/macros/s/AKfycb.../usercallback
+
+# ═══════════════════════════════════════════════════════════════════
+# 📅 GOOGLE CALENDAR
+# ═══════════════════════════════════════════════════════════════════
+# Service Account Key (JSON completo en una línea)
+GOOGLE_SERVICE_ACCOUNT_KEY={"type":"service_account","project_id":"...todo el json..."}
+
+# ID de tu Google Sheet (solo si usas la opción avanzada)
+GOOGLE_SHEETS_ID=1A2B3C4D5E6F7G8H9I
+
+
+═══════════════════════════════════════════════════════════════════════
+📍 ARCHIVO: google-apps-script.txt
+═══════════════════════════════════════════════════════════════════════
+
+DÓNDE PEGARLO:
+1. Abre tu Google Sheet
+2. Ve a: Extensions > Apps Script
+3. Borra todo el código que aparece
+4. Copia TODO el contenido del archivo "google-apps-script.txt"
+5. Pégalo en el editor de Apps Script
+6. Guarda (Ctrl+S)
+7. Deploy > New deployment > Web app
+8. Copia la URL que te dan
+9. Pégala en .env.local como NEXT_PUBLIC_APPS_SCRIPT_URL
+
+
+═══════════════════════════════════════════════════════════════════════
+🔑 CÓMO OBTENER CADA CLAVE
+═══════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ 1️⃣ EMAILJS_PUBLIC_KEY                                              │
+└─────────────────────────────────────────────────────────────────────┘
+
+DÓNDE:    https://dashboard.emailjs.com/admin/account
+UBICACIÓN: Sección "API Keys" > "Public Key"
+FORMATO:   AbC123XyZ789... (string alfanumérico)
+EJEMPLO:   user_abc123xyz789
+
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ 2️⃣ EMAILJS_SERVICE_ID                                              │
+└─────────────────────────────────────────────────────────────────────┘
+
+DÓNDE:    https://dashboard.emailjs.com/admin/services
+ACCIÓN:   Add New Service > Elige tu email provider (Gmail, Outlook, etc.)
+FORMATO:   service_abc123
+EJEMPLO:   service_gmail123
+
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ 3️⃣ EMAILJS_TEMPLATE_ID                                             │
+└─────────────────────────────────────────────────────────────────────┘
+
+DÓNDE:    https://dashboard.emailjs.com/admin/templates
+ACCIÓN:   Create New Template
+FORMATO:   template_xyz789
+EJEMPLO:   template_contact_form
+NOTA:     Usa las variables del formulario: {{from_name}}, {{from_email}}, 
+          {{company_sector}}, {{services}}, {{preferred_date}}, etc.
+
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ 4️⃣ CONTACT_EMAIL                                                   │
+└─────────────────────────────────────────────────────────────────────┘
+
+TU DECISIÓN: El email donde quieres RECIBIR las consultas
+FORMATO:     email@ejemplo.com
+EJEMPLO:     contacto@tuempresa.com
+
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ 5️⃣ APPS_SCRIPT_URL                                                 │
+└─────────────────────────────────────────────────────────────────────┘
+
+DÓNDE:    En tu Google Sheet > Extensions > Apps Script
+ACCIÓN:   
+  1. Pega el código de "google-apps-script.txt"
+  2. Deploy > New deployment > Web app
+  3. Execute as: Me
+  4. Who has access: Anyone
+  5. Copia la URL que te dan
+FORMATO:   https://script.google.com/macros/s/AKfycb.../usercallback
+EJEMPLO:   https://script.google.com/macros/s/AKfycbXYZ123.../usercallback
+
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ 6️⃣ GOOGLE_SERVICE_ACCOUNT_KEY                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+DÓNDE:    https://console.cloud.google.com
+PASOS:
+  1. Create new project
+  2. Enable APIs: Google Calendar API
+  3. Create Service Account (APIs & Services > Credentials)
+  4. Create JSON Key
+  5. Descarga el archivo JSON
+  6. Minify el JSON (todo en una línea): https://www.freeformatter.com/json-formatter.html
+  7. Pégalo completo en .env.local
+  
+FORMATO:   {"type":"service_account","project_id":"...","private_key":"..."}
+IMPORTANTE: Debe estar en UNA SOLA LÍNEA (sin saltos de línea)
+
+EXTRA: Compartir tu Google Calendar con el email del Service Account
+  - Copia el "client_email" del JSON
+  - Ve a Google Calendar > Configuración > Compartir
+  - Agrega ese email con permisos de "Make changes to events"
+
+
+═══════════════════════════════════════════════════════════════════════
+✅ CHECKLIST DE VERIFICACIÓN
+═══════════════════════════════════════════════════════════════════════
+
+Antes de probar, verifica que completaste:
+
+[ ] Creaste cuenta en EmailJS
+[ ] Obtuviste las 3 claves de EmailJS (Public Key, Service ID, Template ID)
+[ ] Configuraste tu plantilla de email con las variables correctas
+[ ] Creaste una Google Sheet
+[ ] Pegaste el código de Apps Script en la hoja
+[ ] Desplegaste el Apps Script como Web App
+[ ] Copiaste la URL del Apps Script
+[ ] Creaste proyecto en Google Cloud Console
+[ ] Habilitaste Google Calendar API
+[ ] Creaste Service Account
+[ ] Descargaste el JSON del Service Account
+[ ] Compartiste tu Google Calendar con el email del Service Account
+[ ] Minificaste el JSON (todo en una línea)
+[ ] Creaste el archivo .env.local
+[ ] Pegaste TODAS las variables en .env.local
+[ ] Reiniciaste el servidor (Ctrl+C y npm run dev)
+
+
+═══════════════════════════════════════════════════════════════════════
+🧪 CÓMO PROBAR
+═══════════════════════════════════════════════════════════════════════
+
+1. Reinicia el servidor:
+   - Presiona Ctrl+C en la terminal
+   - Ejecuta: npm run dev (o bun dev)
+
+2. Ve al formulario de contacto en tu navegador
+
+3. Llena todos los campos:
+   - Nombre y apellido
+   - Email
+   - Sector de empresa
+   - Selecciona al menos 1 servicio
+   - Fecha y hora
+   - Mensaje
+
+4. Haz clic en "ENVIAR POR WHATSAPP"
+
+5. Verifica:
+   ✅ Recibiste un EMAIL en tu bandeja de entrada
+   ✅ Se creó una nueva FILA en tu Google Sheet
+   ✅ Se creó un EVENTO en tu Google Calendar
+   ✅ Se abrió WHATSAPP con el mensaje
+
+6. Revisa la consola del navegador (F12 > Console):
+   Deberías ver:
+   📧 Enviando email con EmailJS...
+   ✅ Email enviado exitosamente
+   📊 Guardando en Google Sheets...
+   ✅ Datos guardados en Google Sheets
+   📅 Creando evento en Google Calendar...
+   ✅ Evento creado en Google Calendar
+
+
+═══════════════════════════════════════════════════════════════════════
+❌ PROBLEMAS COMUNES
+═══════════════════════════════════════════════════════════════════════
+
+❌ "EmailJS no está configurado"
+→ Verifica que las variables NEXT_PUBLIC_EMAILJS_* estén en .env.local
+→ Reinicia el servidor
+
+❌ "Google Calendar no configurado"
+→ Verifica que GOOGLE_SERVICE_ACCOUNT_KEY esté en .env.local
+→ Asegúrate que el JSON esté en UNA SOLA LÍNEA (sin saltos)
+
+❌ "Apps Script no responde"
+→ Verifica que desplegaste el script como "Web app"
+→ Verifica que "Who has access" esté en "Anyone"
+→ Prueba la URL en el navegador, debe mostrar: "Apps Script está funcionando"
+
+❌ No se crea el evento en Calendar
+→ Verifica que compartiste tu Calendar con el email del Service Account
+→ Ve a Google Calendar > Configuración > Compartir
+→ Agrega el "client_email" del JSON
+
+❌ "Invalid JSON in service account key"
+→ El JSON del Service Account tiene saltos de línea
+→ Usa el minifier: https://www.freeformatter.com/json-formatter.html
+→ Copia el resultado y pégalo en .env.local
+
+
+═══════════════════════════════════════════════════════════════════════
+📚 MÁS INFORMACIÓN
+═══════════════════════════════════════════════════════════════════════
+
+Para instrucciones detalladas paso a paso con capturas de pantalla:
+→ Lee el archivo: INSTRUCCIONES-APIS.txt
+
+Para el código del Apps Script completo:
+→ Lee el archivo: google-apps-script.txt
+
+Para ver un ejemplo de .env.local completo:
+→ Lee el archivo: .env.example
+
+
+═══════════════════════════════════════════════════════════════════════
+🎉 ¡LISTO!
+═══════════════════════════════════════════════════════════════════════
+
+Una vez que configures todas las APIs, el formulario:
+✅ Enviará un email automático
+✅ Guardará los datos en Google Sheets
+✅ Creará una cita en Google Calendar
+✅ Verificará disponibilidad antes de reservar
+✅ Abrirá WhatsApp con los datos del cliente
+
+Todo funcionará automáticamente sin necesidad de código adicional.
+
+¡Buena suerte! 🚀

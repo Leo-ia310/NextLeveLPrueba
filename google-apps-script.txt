@@ -1,0 +1,238 @@
+/*
+═══════════════════════════════════════════════════════════════════════
+📊 GOOGLE APPS SCRIPT - FORM HANDLER
+═══════════════════════════════════════════════════════════════════════
+
+Este código debe pegarse en Google Apps Script para recibir datos del
+formulario de contacto y guardarlos automáticamente en Google Sheets.
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ INSTRUCCIONES:                                                      │
+│                                                                     │
+│ 1. Abre tu Google Sheet                                            │
+│ 2. Ve a: Extensions > Apps Script                                  │
+│ 3. Borra todo el código que aparece                                │
+│ 4. Copia y pega TODO el código de abajo                            │
+│ 5. Guarda (icono 💾 o Ctrl+S)                                       │
+│ 6. Despliega: Deploy > New deployment > Web app                    │
+│ 7. Configura:                                                       │
+│    - Execute as: Me                                                 │
+│    - Who has access: Anyone                                         │
+│ 8. Copia la URL que te dan y ponla en .env.local                   │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+CÓDIGO (Copia desde aquí hacia abajo):
+═══════════════════════════════════════════════════════════════════════
+*/
+
+/**
+ * Función principal que recibe los datos POST del formulario
+ */
+function doPost(e) {
+  try {
+    // Log para debugging
+    Logger.log('Datos recibidos: ' + e.postData.contents);
+    
+    // Obtener la hoja activa
+    var sheet = SpreadsheetApp.getActiveSheet();
+    
+    // Parsear los datos JSON del formulario
+    var data = JSON.parse(e.postData.contents);
+    
+    // Si es la primera fila, crear encabezados automáticamente
+    if (sheet.getLastRow() === 0) {
+      var headers = [
+        'Timestamp',
+        'Nombre',
+        'Apellido',
+        'Email',
+        'Sector Empresa',
+        'Servicios',
+        'Fecha Reunión',
+        'Hora Reunión',
+        'Mensaje'
+      ];
+      sheet.appendRow(headers);
+      
+      // Formatear encabezados
+      var headerRange = sheet.getRange(1, 1, 1, headers.length);
+      headerRange.setBackground('#009299');
+      headerRange.setFontColor('#FFFFFF');
+      headerRange.setFontWeight('bold');
+      headerRange.setHorizontalAlignment('center');
+      
+      // Congelar fila de encabezados
+      sheet.setFrozenRows(1);
+      
+      // Auto-ajustar columnas
+      for (var i = 1; i <= headers.length; i++) {
+        sheet.autoResizeColumn(i);
+      }
+    }
+    
+    // Preparar los valores en el orden correcto
+    var values = [
+      data.timestamp || new Date().toISOString(),
+      data.nombre || '',
+      data.apellido || '',
+      data.email || '',
+      data.ubicacion || '',
+      data.services || '',
+      data.fecha || '',
+      data.hora || '',
+      data.mensaje || ''
+    ];
+    
+    // Agregar nueva fila con los datos
+    sheet.appendRow(values);
+    
+    // Formatear la nueva fila
+    var lastRow = sheet.getLastRow();
+    var dataRange = sheet.getRange(lastRow, 1, 1, values.length);
+    
+    // Alternar colores de fondo
+    if (lastRow % 2 === 0) {
+      dataRange.setBackground('#F0F0F0');
+    }
+    
+    // Formatear columna de email como enlace
+    var emailCell = sheet.getRange(lastRow, 4);
+    emailCell.setFontColor('#009299');
+    
+    // Log exitoso
+    Logger.log('Datos guardados exitosamente en fila ' + lastRow);
+    
+    // Responder con éxito
+    return ContentService
+      .createTextOutput(JSON.stringify({
+        success: true,
+        message: 'Datos guardados correctamente',
+        row: lastRow
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
+      
+  } catch (error) {
+    // Log de error
+    Logger.log('Error: ' + error.toString());
+    
+    // Responder con error
+    return ContentService
+      .createTextOutput(JSON.stringify({
+        success: false,
+        error: error.toString()
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+/**
+ * Función GET para verificar que el script está funcionando
+ */
+function doGet(e) {
+  return HtmlService.createHtmlOutput(
+    '<h1>✅ Apps Script está funcionando correctamente</h1>' +
+    '<p>Este webhook está listo para recibir datos del formulario.</p>' +
+    '<p>Endpoint: ' + ScriptApp.getService().getUrl() + '</p>'
+  );
+}
+
+/**
+ * Función para probar manualmente (opcional)
+ * Puedes ejecutarla desde el editor para ver si funciona
+ */
+function testFormSubmission() {
+  var testData = {
+    postData: {
+      contents: JSON.stringify({
+        timestamp: new Date().toISOString(),
+        nombre: 'Juan',
+        apellido: 'Pérez',
+        email: 'juan@ejemplo.com',
+        ubicacion: 'Tecnología',
+        services: 'Marketing, Finanzas',
+        fecha: '2025-11-15',
+        hora: '14:00',
+        mensaje: 'Esto es una prueba del formulario'
+      })
+    }
+  };
+  
+  var result = doPost(testData);
+  Logger.log('Resultado de la prueba: ' + result.getContent());
+}
+
+/**
+ * Función para limpiar datos antiguos (opcional)
+ * Ejecuta esto si quieres borrar todo menos los encabezados
+ */
+function clearOldData() {
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var lastRow = sheet.getLastRow();
+  
+  if (lastRow > 1) {
+    sheet.deleteRows(2, lastRow - 1);
+    Logger.log('Datos limpiados. Solo quedan los encabezados.');
+  } else {
+    Logger.log('No hay datos para limpiar.');
+  }
+}
+
+/**
+ * Función para enviar notificación por email cuando llega un nuevo formulario
+ * (Opcional - descomenta si quieres recibir notificaciones)
+ */
+/*
+function sendEmailNotification(data) {
+  var recipient = 'tuempresa@gmail.com'; // Cambia esto
+  var subject = 'Nueva consulta del formulario: ' + data.nombre + ' ' + data.apellido;
+  
+  var body = 
+    'Has recibido una nueva consulta:\n\n' +
+    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
+    'DATOS DEL CLIENTE:\n' +
+    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
+    'Nombre: ' + data.nombre + ' ' + data.apellido + '\n' +
+    'Email: ' + data.email + '\n' +
+    'Sector: ' + data.ubicacion + '\n\n' +
+    'SERVICIOS DE INTERÉS:\n' +
+    data.services + '\n\n' +
+    'REUNIÓN PREFERIDA:\n' +
+    'Fecha: ' + data.fecha + '\n' +
+    'Hora: ' + data.hora + '\n\n' +
+    'MENSAJE:\n' +
+    data.mensaje + '\n' +
+    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
+  
+  MailApp.sendEmail(recipient, subject, body);
+}
+
+// Para activar las notificaciones, descomenta esta línea en doPost():
+// sendEmailNotification(data);
+*/
+
+/*
+═══════════════════════════════════════════════════════════════════════
+FIN DEL CÓDIGO
+═══════════════════════════════════════════════════════════════════════
+
+DESPUÉS DE PEGAR ESTE CÓDIGO:
+
+1. Haz clic en "Save" (💾)
+2. Ponle nombre al proyecto: "Form Handler"
+3. Ve a "Deploy" > "New deployment"
+4. Tipo: "Web app"
+5. Configuración:
+   - Description: "Form submission webhook"
+   - Execute as: Me (tu cuenta)
+   - Who has access: Anyone
+6. Haz clic en "Deploy"
+7. Autoriza los permisos (Google te pedirá confirmación)
+8. Copia la URL del Web app que te dan
+9. Pégala en tu .env.local como:
+   NEXT_PUBLIC_APPS_SCRIPT_URL=https://script.google.com/macros/s/...
+
+¡Listo! Ahora el formulario guardará automáticamente en tu Google Sheet.
+
+═══════════════════════════════════════════════════════════════════════
+*/
