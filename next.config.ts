@@ -3,7 +3,9 @@ import path from "node:path";
 
 const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader.js');
 
+/** @type {NextConfig} */
 const nextConfig: NextConfig = {
+  output: "standalone",
   images: {
     remotePatterns: [
       {
@@ -31,6 +33,7 @@ const nextConfig: NextConfig = {
     }
   }
 };
+
 
 export default nextConfig;
 
