@@ -5,7 +5,6 @@ const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader
 
 /** @type {NextConfig} */
 const nextConfig: NextConfig = {
-  output: "standalone",
   images: {
     remotePatterns: [
       {
@@ -18,7 +17,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  outputFileTracingRoot: path.resolve(__dirname, '../../'),
   typescript: {
     ignoreBuildErrors: true,
   },
