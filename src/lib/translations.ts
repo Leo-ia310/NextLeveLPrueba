@@ -102,6 +102,10 @@ export const translations = {
           title: 'Marketing y Redes Sociales',
           description: 'Estrategias de marketing digital, gestión de redes sociales, campañas publicitarias y posicionamiento de marca para impulsar tu crecimiento.',
         },
+        {
+          title: 'Contabilidad',
+          description: 'Ofrecemos servicios de contabilidad que incluyen registro de operaciones, elaboración de estados financieros y control fiscal, asegurando que tu negocio esté ordenado, actualizado y cumpla con todas las normativas.',
+        },
       ],
     },
     // FAQ
@@ -395,6 +399,10 @@ export const translations = {
         {
           title: 'Marketing & Social Media',
           description: 'Digital marketing strategies, social media management, advertising campaigns and brand positioning to boost your growth.',
+        },
+        {
+        title: 'Accounting',
+        description: 'We offer accounting services that include transaction recording, preparation of financial statements, and tax compliance, ensuring that your business stays organized, up-to-date, and fully compliant with all regulations.',
         },
       ],
     },

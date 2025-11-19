@@ -1,19 +1,20 @@
 "use client";
 
 import React from 'react';
-import { Settings, DollarSign, Cpu, Target, TrendingUp } from 'lucide-react';
+import { Settings, DollarSign, Cpu, Target, TrendingUp, Calculator } from 'lucide-react';
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useLanguage } from '@/contexts/language-context';
 import { translations } from '@/lib/translations';
 import Link from 'next/link';
 
-const serviceIcons = [Settings, DollarSign, Cpu, Target, TrendingUp];
+const serviceIcons = [Settings, DollarSign, Cpu, Target, TrendingUp, Calculator];
 const serviceLinks = [
   '/services/operations',
   '/services/finance',
   '/services/technology',
   '/services/strategy',
-  '/services/marketing'
+  '/services/marketing',
+  '/services/accounting',
 ];
 
 const ServicesSection = () => {
@@ -35,7 +36,8 @@ const ServicesSection = () => {
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
           {t.services.items.map((service, index) => {
-            const IconComponent = serviceIcons[index];
+            const IconComponent = serviceIcons[index] ?? Settings;
+            const href = serviceLinks[index] ?? '/services';
             return (
               <div
                 key={`service-${index}`}
@@ -51,7 +53,7 @@ const ServicesSection = () => {
                 </p>
                 
                 <Link
-                  href={serviceLinks[index]}
+                  href={href}
                   className="mt-4 inline-flex items-center gap-2 rounded-md border border-[#009299] bg-[#009299]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#009299] transition hover:bg-[#009299] hover:text-white"
                 >
                   {language === 'es' ? 'VER MÁS' : 'LEARN MORE'}

@@ -42,11 +42,11 @@ export async function POST(request: NextRequest) {
       description: description || '',
       start: {
         dateTime: startTime,
-        timeZone: 'America/Argentina/Buenos_Aires', // Ajusta tu zona horaria
+        timeZone: 'America/New_York', // Cambiado a zona horaria de Estados Unidos (Eastern Time)
       },
       end: {
         dateTime: endTime,
-        timeZone: 'America/Argentina/Buenos_Aires',
+        timeZone: 'America/New_York', // Cambiado a zona horaria de Estados Unidos (Eastern Time)
       },
       attendees: attendeeEmail ? [{ email: attendeeEmail }] : [],
       reminders: {

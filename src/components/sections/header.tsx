@@ -25,6 +25,9 @@ export default function Header() {
     { name: language === 'es' ? 'Gestión de Operaciones' : 'Operations Management', href: '/services/operations' },
     { name: language === 'es' ? 'Finanzas' : 'Finance', href: '/services/finance' },
     { name: language === 'es' ? 'Contabilidad' : 'Accounting', href: '/services/accounting' },
+    { name: language === 'es' ? 'Tecnológica' : 'Technology', href: '/services/technology' },
+    { name: language === 'es' ? 'Estratégica' : 'Strategy', href: '/services/strategy' },
+    { name: language === 'es' ? 'Marketing' : 'Marketing', href: '/services/marketing' },
   ];
 
   useEffect(() => {

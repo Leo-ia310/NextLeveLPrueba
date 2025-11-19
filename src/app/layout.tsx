@@ -7,13 +7,13 @@ import { LanguageProvider } from "@/contexts/language-context";
 
 export const metadata: Metadata = {
   title: "Next Level Business Consulting | Marketing, Finanzas y Contabilidad",
-  description: "Consultoría empresarial líder en Argentina especializada en marketing digital, asesoría financiera y contabilidad. Más de 100 clientes satisfechos con soluciones integrales para el crecimiento empresarial.",
+  description: "Consultoría empresarial líder en Estados Unidos especializada en marketing digital, asesoría financiera y contabilidad. Más de 100 clientes satisfechos con soluciones integrales para el crecimiento empresarial.",
   keywords: [
     "consultoría empresarial",
     "marketing digital",
     "asesoría financiera",
     "Next Level",
-    "consultoría Argentina",
+    "consultoría Latinoamerica",
     "contabilidad empresarial",
     "estrategia de marketing",
     "finanzas corporativas",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     locale: "es_AR",
     url: "https://www.nextlevelbusiness.com",
     title: "Next Level Business Consulting | Marketing, Finanzas y Contabilidad",
-    description: "Consultoría empresarial líder en Argentina especializada en marketing digital, asesoría financiera y contabilidad. Más de 100 clientes satisfechos.",
+    description: "Consultoría empresarial líder en Estados unidos especializada en marketing digital, asesoría financiera y contabilidad. Más de 100 clientes satisfechos.",
     siteName: "Next Level Business Consulting",
     images: [
       {
@@ -82,8 +82,8 @@ const structuredData = {
   "image": "https://www.nextlevelbusiness.com/og-image.jpg",
   "address": {
     "@type": "PostalAddress",
-    "addressCountry": "AR",
-    "addressLocality": "Buenos Aires"
+    "addressCountry": "CO",
+    "addressLocality": "United States"
   },
   "sameAs": [
     "https://www.instagram.com/nextlevelbusiness",
