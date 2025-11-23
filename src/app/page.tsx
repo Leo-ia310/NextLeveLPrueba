@@ -17,8 +17,6 @@ export default function Home() {
         <HeroCarousel />
         <AboutUsSection />
         <MissionVisionSection />
-        <ServicesSection />
-        <ProjectsGrid />
         <FAQSection />
         <Testimonials />
         <ContactForm />
