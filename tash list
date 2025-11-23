@@ -1,0 +1,13 @@
+* [33m7e8cc69[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Arreglo del archivo .env.local
+* [33mf34f6ac[m Version 2 BETA
+[31m|[m *   [33mc9b9e69[m[33m ([m[1;35mrefs/stash[m[33m)[m WIP on main: 812c10a Arrelglando bugs de next  config
+[31m|[m[31m/[m[33m|[m[34m\[m  
+[31m|[m [33m|[m * [33maa7d499[m untracked files on main: 812c10a Arrelglando bugs de next  config
+[31m|[m * [33m3adbd5d[m index on main: 812c10a Arrelglando bugs de next  config
+[31m|[m[31m/[m  
+* [33m812c10a[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Arrelglando bugs de next  config
+* [33m690538c[m Remove .next and update next.config.js for Vercel
+* [33m3401af9[m Mejora de VisualEditsMessenger
+* [33m0c2f8fc[m Mejora de servicios2
+* [33mbb02074[m Mejora de servicios
+* [33m1c707f9[m Nueva version
