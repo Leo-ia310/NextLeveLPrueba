@@ -6,8 +6,7 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useLanguage } from '@/contexts/language-context';
 import { translations } from '@/lib/translations';
 import { initEmailJS, sendEmail } from '@/lib/emailjs';
-import { sendToGoogleSheet, SheetFormData } from '@/lib/google-sheets';
-import { createCalendarEvent, checkAvailability } from '@/lib/google-calendar';
+import { sendToGoogleSheet, SheetFormData, checkAvailabilityInSheet } from '@/lib/google-sheets';
 import { CalendarAvailability } from '@/components/ui/calendar-availability';
 
 interface FormData {
@@ -20,7 +19,6 @@ interface FormData {
   hora: string;
   services: string[];
 }
-
 
 const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -47,12 +45,22 @@ const ContactForm = () => {
   const { language } = useLanguage();
   const t = translations[language];
 
-
-
   // Inicializar EmailJS al montar el componente
   useEffect(() => {
     initEmailJS();
   }, []);
+
+  // Verificar disponibilidad en Google Sheets cuando cambien fecha o hora
+  useEffect(() => {
+    if (formData.fecha && formData.hora) {
+      checkAvailabilityInSheet(formData.fecha, formData.hora).then((available) => {
+        setIsAvailable(available);
+      }).catch((error) => {
+        console.error('Error checking availability:', error);
+        setIsAvailable(false); // Asumir no disponible en caso de error
+      });
+    }
+  }, [formData.fecha, formData.hora]);
 
   // Generate time slots for 30-minute consultations from 9:00 to 18:00
   const generateTimeSlots = () => {
@@ -153,62 +161,7 @@ const ContactForm = () => {
       await sendToGoogleSheet(sheetData);
       console.log('✅ Datos guardados en Google Sheets');
 
-      // ═══════════════════════════════════════════════════════════════
-      // 3. CREAR EVENTO EN GOOGLE CALENDAR
-      // ═══════════════════════════════════════════════════════════════
-      let calendarSuccess = false;
-      if (fecha && hora) {
-        console.log('📅 Creando evento en Google Calendar...');
-        try {
-          await createCalendarEvent({
-            nombre: `${nombre} ${apellido}`,
-            email,
-            fecha,
-            hora,
-            services: services.join(', '),
-            mensaje,
-          });
-          console.log('✅ Evento creado en Google Calendar');
-          calendarSuccess = true;
-        } catch (calendarError) {
-          console.error('❌ Error al crear evento en Calendar (pero continuamos):', calendarError);
-          // No lanzamos error aquí; permitimos que el formulario se envíe exitosamente
-        }
-      }
-      // ═══════════════════════════════════════════════════════════════
-      // 4. ABRIR WHATSAPP (OPCIONAL)
-      // ═══════════════════════════════════════════════════════════════
-      const labels = language === 'es' 
-        ? { nombre: 'Nombre', apellido: 'Apellido', email: 'Email', ubicacion: 'Sector de empresa', fecha: 'Fecha de reunión preferida', hora: 'Hora preferida', mensaje: 'Mensaje', services: 'Servicios de interés' }
-        : { nombre: 'First Name', apellido: 'Last Name', email: 'Email', ubicacion: 'Company sector', fecha: 'Preferred meeting date', hora: 'Preferred time', mensaje: 'Message', services: 'Services of interest' };
-      
-      let message = `${t.contact.whatsappMessage}\n\n`;
-      if (nombre) message += `*${labels.nombre}:* ${nombre}\n`;
-      if (apellido) message += `*${labels.apellido}:* ${apellido}\n`;
-      if (email) message += `*${labels.email}:* ${email}\n`;
-      if (ubicacion) message += `*${labels.ubicacion}:* ${ubicacion}\n`;
-      if (services.length > 0) message += `*${labels.services}:* ${services.join(', ')}\n`;
-      if (fecha) message += `*${labels.fecha}:* ${fecha}\n`;
-      if (hora) message += `*${labels.hora}:* ${hora}\n`;
-      if (mensaje) message += `*${labels.mensaje}:* ${mensaje}\n`;
-
-      const whatsappUrl = `https://wa.me/5491148431950?text=${encodeURIComponent(message.trim())}`;
-      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-
-      // Success!
       setSubmitStatus('success');
-      
-      // Reset form
-      setFormData({
-        nombre: "",
-        apellido: "",
-        email: "",
-        ubicacion: "",
-        mensaje: "",
-        fecha: "",
-        hora: "",
-        services: [],
-      });
 
       // Clear success message after 5 seconds
       setTimeout(() => {
@@ -218,24 +171,6 @@ const ContactForm = () => {
     } catch (error) {
       console.error('❌ Error al enviar el formulario:', error);
       setSubmitStatus('error');
-      
-      // Still open WhatsApp as fallback
-      const labels = language === 'es' 
-        ? { nombre: 'Nombre', apellido: 'Apellido', email: 'Email', ubicacion: 'Sector de empresa', fecha: 'Fecha de reunión preferida', hora: 'Hora preferida', mensaje: 'Mensaje', services: 'Servicios de interés' }
-        : { nombre: 'First Name', apellido: 'Last Name', email: 'Email', ubicacion: 'Company sector', fecha: 'Preferred meeting date', hora: 'Preferred time', mensaje: 'Message', services: 'Services of interest' };
-      
-      let message = `${t.contact.whatsappMessage}\n\n`;
-      if (nombre) message += `*${labels.nombre}:* ${nombre}\n`;
-      if (apellido) message += `*${labels.apellido}:* ${apellido}\n`;
-      if (email) message += `*${labels.email}:* ${email}\n`;
-      if (ubicacion) message += `*${labels.ubicacion}:* ${ubicacion}\n`;
-      if (services.length > 0) message += `*${labels.services}:* ${services.join(', ')}\n`;
-      if (fecha) message += `*${labels.fecha}:* ${fecha}\n`;
-      if (hora) message += `*${labels.hora}:* ${hora}\n`;
-      if (mensaje) message += `*${labels.mensaje}:* ${mensaje}\n`;
-
-      const whatsappUrl = `https://wa.me/5491148431950?text=${encodeURIComponent(message.trim())}`;
-      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 
       setTimeout(() => {
         setSubmitStatus('idle');
@@ -244,6 +179,9 @@ const ContactForm = () => {
       setIsSubmitting(false);
     }
   };
+
+  // ... (el resto del JSX del componente permanece igual)
+
 
   return (
     <section 
@@ -286,7 +224,7 @@ const ContactForm = () => {
               </p>
               <a
                 className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#009299] px-5 py-3 font-bold text-white transition hover:bg-[#009299]/90 sm:w-auto"
-                href={`https://wa.me/5491148431950?text=${encodeURIComponent(t.contact.whatsappMessage)}`}
+                href={`https://wa.me/17202371356?text=${encodeURIComponent(t.contact.whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -516,12 +454,12 @@ const ContactForm = () => {
                   <br />
                   {language === 'es' ? 'Destino' : 'Destination'}:{" "}
                   <a
-                    href="https://wa.me/5491148431950"
+                    href="https://wa.me/17202371356"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-mono text-[#009299] hover:text-[#00b8c1]"
                   >
-                    wa.me/5491148431950
+                    wa.me/17202371356
                   </a>
                 </p>
                 <div className="mt-6 flex justify-end">

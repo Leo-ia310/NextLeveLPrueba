@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Calendar, Clock, CheckCircle2, XCircle } from 'lucide-react';
-import { getCalendarEvents } from '@/lib/google-calendar';
+import { checkAvailabilityInSheet, getBookedSlotsFromSheet } from '@/lib/google-sheets';
 
 interface CalendarAvailabilityProps {
   selectedDate: string;
@@ -33,46 +33,30 @@ export function CalendarAvailability({
 
   const loadDayEvents = async () => {
     if (!selectedDate) return;
-    
     try {
-      const events = await getCalendarEvents(selectedDate);
-      
-      // Extraer las horas ocupadas
-      const slots = events.map((event: any) => {
-        const start = new Date(event.start);
-        return `${start.getHours().toString().padStart(2, '0')}:${start.getMinutes().toString().padStart(2, '0')}`;
-      });
-      
+      const slots = await getBookedSlotsFromSheet(selectedDate);
       setBookedSlots(slots);
     } catch (error) {
-      console.error('Error al cargar eventos del día:', error);
+      console.error('Error al cargar horarios ocupados del día desde Sheets:', error);
+      setBookedSlots([]);
     }
   };
 
   const checkAvailability = async () => {
     setIsChecking(true);
-    
     try {
-      const events = await getCalendarEvents(selectedDate);
-      
-      // Verificar si la hora seleccionada está ocupada
-      const [hour, minute] = selectedTime.split(':');
-      const selectedDateTime = new Date(selectedDate);
-      selectedDateTime.setHours(parseInt(hour), parseInt(minute));
-      
-      const hasConflict = events.some((event: any) => {
-        const eventStart = new Date(event.start);
-        const eventEnd = new Date(event.end);
-        return selectedDateTime >= eventStart && selectedDateTime < eventEnd;
-      });
-      
-      const available = !hasConflict;
+      // Primero intenta verificar con Sheets
+      const available = await checkAvailabilityInSheet(selectedDate, selectedTime);
       setIsAvailable(available);
       onAvailabilityCheck(available);
+
+      // En paralelo/tras la verificación, refresca los slots ocupados del día
+      loadDayEvents();
     } catch (error) {
-      console.error('Error al verificar disponibilidad:', error);
-      setIsAvailable(true); // En caso de error, asumir disponible
-      onAvailabilityCheck(true);
+      console.error('Error al verificar disponibilidad en Sheets:', error);
+      // En caso de error, por seguridad marcamos como no disponible
+      setIsAvailable(false);
+      onAvailabilityCheck(false);
     } finally {
       setIsChecking(false);
     }

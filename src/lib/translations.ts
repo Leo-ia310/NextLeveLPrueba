@@ -313,6 +313,10 @@ export const translations = {
           marketing: 'Marketing',
           finance: 'Finanzas',
           accounting: 'Contabilidad',
+          operations: 'Gestion de Operaciones',
+          technology: 'Tecnologia',
+          strategy: 'Estrategia',
+          webDevelopment: 'Desarrollo Web y SEO'
         },
         submitNote: 'Al enviar, se abrirá WhatsApp con tu consulta precompletada.',
         submit: 'ENVIAR POR WHATSAPP',
@@ -643,6 +647,11 @@ export const translations = {
           marketing: 'Marketing',
           finance: 'Finance',
           accounting: 'Accounting',
+          operations: 'Operations Management',
+          technology: 'Technology',
+          strategy: 'Strategy',
+          webDevelopment: 'Web Development and SEO'
+          
         },
         submitNote: 'By submitting, WhatsApp will open with your pre-filled inquiry.',
         submit: 'SEND VIA WHATSAPP',
