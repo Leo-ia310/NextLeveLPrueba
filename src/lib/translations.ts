@@ -106,6 +106,10 @@ export const translations = {
           title: 'Contabilidad',
           description: 'Ofrecemos servicios de contabilidad que incluyen registro de operaciones, elaboración de estados financieros y control fiscal, asegurando que tu negocio esté ordenado, actualizado y cumpla con todas las normativas.',
         },
+        {
+        title: 'Desarrollo Web y SEO',
+        description: 'Diseñamos y optimizamos sitios web rápidos, seguros y escalables, brindando mantenimiento continuo y estrategias SEO que impulsan visibilidad y resultados.',
+        }
       ],
     },
     // FAQ
@@ -187,6 +191,25 @@ export const translations = {
           question: '¿Me ayudan con auditorías fiscales?',
           answer: 'Sí, brindamos acompañamiento completo durante auditorías fiscales, preparación de documentación, respuestas a requerimientos y estrategias para resolver observaciones.',
         },
+        
+      ],
+        webDevelopment: [
+        {
+          question: '¿Qué incluye el servicio de desarrollo web?',
+          answer: 'Incluye el diseño y desarrollo de un sitio web moderno, rápido y responsive, optimizado para SEO, con integración de analíticas, seguridad básica, formularios, y todas las funcionalidades necesarias según tu proyecto.',
+        },
+        {
+          question: '¿Ofrecen mantenimiento después de entregar el sitio?',
+          answer: 'Sí. Brindamos mantenimiento mensual que cubre actualizaciones, mejoras, monitoreo de seguridad, corrección de errores, backups y optimización continua del rendimiento de tu sitio.',
+        },
+        {
+          question: '¿Cómo funciona el SEO que ofrecen?',
+          answer: 'Realizamos optimización técnica, mejora de velocidad, investigación de palabras clave, optimización de contenido, estructura del sitio, indexación, y monitoreo mensual del posicionamiento para mejorar tu visibilidad en Google.',
+        },
+        {
+          question: '¿Cuánto tiempo toma desarrollar un sitio web?',
+          answer: 'Dependiendo de la complejidad, un sitio web puede tardar entre 1 y 4 semanas. Proyectos más avanzados, como sistemas personalizados, pueden tomar más tiempo. Trabajamos con un cronograma claro desde el inicio.',
+        },
       ],
     },
     // Testimonials
@@ -248,6 +271,16 @@ export const translations = {
           quote: 'La implementación de su sistema contable transformó nuestra firma. Ahora trabajamos el doble de eficiente con la mitad del esfuerzo.',
           category: 'accounting',
         },
+        {
+        name: 'Enrique Jose',
+        company: 'Ventas ABC',
+        role: 'Socio',
+        website: '',
+        photo: 'https://randomuser.me/api/portraits/men/52.jpg',
+        quote: 'El sitio web que desarrollaron para nuestra firma elevó por completo nuestra presencia digital. Ahora recibimos más clientes, el sitio carga rapidísimo y el mantenimiento mensual nos da total tranquilidad.',
+        category: ' webDevelopment',
+}
+
       ],
     },
     // Contact
@@ -294,7 +327,7 @@ export const translations = {
       contactTitle: 'CONTACTO',
       socialTitle: 'REDES',
       copyright: '© 2025 Next Level Business Consulting. Todos los derechos reservados',
-      developer: 'Desarrollado por Codew',
+      developer: 'Desarrollado por NextLevel',
     },
   },
   en: {
@@ -404,6 +437,10 @@ export const translations = {
         title: 'Accounting',
         description: 'We offer accounting services that include transaction recording, preparation of financial statements, and tax compliance, ensuring that your business stays organized, up-to-date, and fully compliant with all regulations.',
         },
+        {
+        Title: 'Web Development and SEO',
+        Description: 'We design and optimize fast, secure, and scalable websites, providing ongoing maintenance and SEO strategies that boost visibility and results.',
+        }
       ],
     },
     // FAQ
@@ -486,6 +523,25 @@ export const translations = {
           answer: 'Yes, we provide full support during tax audits, documentation preparation, responses to requirements and strategies to resolve observations.',
         },
       ],
+            webDevelopment: [
+        {
+          question: 'What does the web development service include?',
+          answer: 'It includes the design and development of a modern, fast, and responsive website, optimized for SEO, with analytics integration, basic security, forms, and all the necessary functionalities according to your project.',
+        },
+        {
+          question: 'Do you offer maintenance after the site is delivered?',
+          answer: 'Yes. We provide monthly maintenance covering updates, improvements, security monitoring, bug fixes, backups, and continuous optimization of your site’s performance.',
+        },
+        {
+          question: 'How does your SEO service work?',
+          answer: 'We perform technical optimization, speed improvements, keyword research, content optimization, site structure enhancement, indexing, and monthly monitoring of rankings to improve your visibility on Google.',
+        },
+        {
+          question: 'How long does it take to develop a website?',
+          answer: 'Depending on complexity, a website can take between 1 and 4 weeks. More advanced projects, such as custom systems, may take longer. We work with a clear timeline from the start.',
+        },
+      ]
+
     },
     // Testimonials
     testimonials: {
@@ -546,6 +602,15 @@ export const translations = {
           quote: 'The implementation of their accounting system transformed our firm. We now work twice as efficiently with half the effort.',
           category: 'accounting',
         },
+        {
+        Name: 'Enrique Jose',
+        Company: 'Ventas ABC',
+        Role: 'Partner',
+        Website: '',
+        Photo: 'https://randomuser.me/api/portraits/men/52.jpg',
+        Quote: 'The website they developed for our firm completely elevated our digital presence. Now we receive more clients, the site loads incredibly fast, and the monthly maintenance gives us complete peace of mind.',
+        Category: 'webDevelopment',
+        },
       ],
     },
     // Contact
@@ -592,7 +657,7 @@ export const translations = {
       contactTitle: 'CONTACT',
       socialTitle: 'SOCIAL',
       copyright: '© 2025 Next Level Business Consulting. All rights reserved',
-      developer: 'Developed by Codew',
+      developer: 'Developed by NextLevel',
     },
   },
 };

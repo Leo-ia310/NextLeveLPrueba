@@ -1,10 +1,9 @@
 "use client";
 
-import { TrendingUp, DollarSign, Calculator, Settings, Cpu, Target } from 'lucide-react';
+import { TrendingUp, DollarSign, Calculator, Settings, Cpu, Target, Code} from 'lucide-react';
 import { useLanguage } from '@/contexts/language-context';
 import Image from 'next/image';
-
-type ServiceType = 'marketing' | 'finance' | 'accounting' | 'operations' | 'technology' | 'strategy';
+type ServiceType = 'marketing' | 'finance' | 'accounting' | 'operations' | 'technology' | 'strategy' | 'webDevelopment' ;
 
 interface ServiceHeroProps {
   serviceType: ServiceType;
@@ -13,7 +12,7 @@ interface ServiceHeroProps {
 const serviceData = {
   marketing: {
     icon: TrendingUp,
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/1e59a2b4-1255-4495-a26b-2e5ea7a74660/generated_images/modern-marketing-strategy-concept-digita-fcbff64c-20251030184251.jpg',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop&q=90',
     es: {
       title: 'Marketing',
       subtitle: 'Estratégico',
@@ -29,7 +28,7 @@ const serviceData = {
   },
   finance: {
     icon: DollarSign,
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/1e59a2b4-1255-4495-a26b-2e5ea7a74660/generated_images/financial-advisory-concept-professional--f7cc2da9-20251030184251.jpg',
+    image: 'https://plus.unsplash.com/premium_photo-1661382438837-fc677e625fa9?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     es: {
       title: 'Asesoría',
       subtitle: 'Financiera',
@@ -61,7 +60,7 @@ const serviceData = {
   },
   operations: {
     icon: Settings,
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/1e59a2b4-1255-4495-a26b-2e5ea7a74660/generated_images/modern-marketing-strategy-concept-digita-fcbff64c-20251030184251.jpg',
+    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&h=1080&fit=crop&q=90',
     es: {
       title: 'Gestión de',
       subtitle: 'Operaciones',
@@ -77,7 +76,7 @@ const serviceData = {
   },
   technology: {
     icon: Cpu,
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/1e59a2b4-1255-4495-a26b-2e5ea7a74660/generated_images/business-accounting-workspace-organized--1a256baa-20251030184251.jpg',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop&q=90',
     es: {
       title: 'Consultoría',
       subtitle: 'Tecnológica',
@@ -93,7 +92,7 @@ const serviceData = {
   },
   strategy: {
     icon: Target,
-    image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/1e59a2b4-1255-4495-a26b-2e5ea7a74660/generated_images/financial-advisory-concept-professional--f7cc2da9-20251030184251.jpg',
+    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&h=1080&fit=crop&q=90',
     es: {
       title: 'Consultoría',
       subtitle: 'Estratégica',
@@ -107,6 +106,23 @@ const serviceData = {
       description: 'We develop clear and actionable business strategies that connect your vision with measurable and sustainable results.',
     },
   },
+  webDevelopment: {
+  icon: Code,
+  image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&h=1080&fit=crop&q=90',
+  es: {
+    title: 'Desarrollo',
+    subtitle: 'Web y SEO',
+    category: 'DESARROLLO WEB · MANTENIMIENTO · SEO',
+    description: 'Creamos sitios web modernos, rápidos y optimizados, brindando mantenimiento continuo y estrategias SEO que impulsan tu presencia online y atraen más clientes.',
+  },
+  en: {
+    title: 'Web Development',
+    subtitle: 'and SEO',
+    category: 'WEB DEVELOPMENT · MAINTENANCE · SEO',
+    description: 'We build modern, fast, and optimized websites while providing ongoing maintenance and SEO strategies that strengthen your online presence and attract more customers.',
+  },
+},
+
 };
 
 const ServiceHero = ({ serviceType }: ServiceHeroProps) => {

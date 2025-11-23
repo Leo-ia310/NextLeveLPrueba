@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Language = 'es' | 'en';
 
@@ -12,12 +12,38 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+const getInitialLanguage = (): Language => {
+  if (typeof window === 'undefined') return 'en'; // SSR fallback
+
+  // Check localStorage first
+  const stored = localStorage.getItem('language');
+  if (stored === 'es' || stored === 'en') return stored as Language;
+
+  // Fallback to browser language
+  const browserLang = navigator.language.split('-')[0];
+  return browserLang === 'es' ? 'es' : 'en';
+};
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', lang);
+    }
+  };
 
   const toggleLanguage = () => {
-    setLanguage(prev => prev === 'es' ? 'en' : 'es');
+    setLanguage(language === 'es' ? 'en' : 'es');
   };
+
+  // Ensure localStorage is set on mount if not already
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', language);
+    }
+  }, [language]);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>

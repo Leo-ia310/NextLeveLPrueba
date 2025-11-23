@@ -13,7 +13,7 @@ interface Slide {
 
 const slideImages: Slide[] = [
   {
-    imgSrc: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/WhatsApp-Image-2025-11-18-at-1.09.47-PM-1763494768348.jpeg",
+    imgSrc: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80",
     alt: "Consultoría de Marketing Estratégico - Crecimiento y Posicionamiento Digital",
   },
   {

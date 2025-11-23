@@ -1,13 +1,13 @@
 "use client";
 
 import React from 'react';
-import { Settings, DollarSign, Cpu, Target, TrendingUp, Calculator } from 'lucide-react';
+import { Settings, DollarSign, Cpu, Target, TrendingUp, Calculator, Code} from 'lucide-react';
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useLanguage } from '@/contexts/language-context';
 import { translations } from '@/lib/translations';
 import Link from 'next/link';
 
-const serviceIcons = [Settings, DollarSign, Cpu, Target, TrendingUp, Calculator];
+const serviceIcons = [Settings, DollarSign, Cpu, Target, TrendingUp, Calculator, Code];
 const serviceLinks = [
   '/services/operations',
   '/services/finance',
@@ -15,6 +15,7 @@ const serviceLinks = [
   '/services/strategy',
   '/services/marketing',
   '/services/accounting',
+  '/services/webDevelopment',
 ];
 
 const ServicesSection = () => {

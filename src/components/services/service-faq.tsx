@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/accordion";
 
 interface ServiceFAQProps {
-  serviceType: 'marketing' | 'finance' | 'accounting' | 'operations' | 'technology' | 'strategy';
+  serviceType: 'marketing' | 'finance' | 'accounting' | 'operations' | 'technology' | 'strategy' | 'webDevelopment';
 }
 
 export const ServiceFAQ = ({ serviceType }: ServiceFAQProps) => {

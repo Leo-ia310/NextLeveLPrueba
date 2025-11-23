@@ -7,7 +7,7 @@ import { useLanguage } from '@/contexts/language-context';
 import { translations } from '@/lib/translations';
 import Image from 'next/image';
 
-type ServiceType = 'marketing' | 'finance' | 'accounting' | 'operations' | 'technology' | 'strategy';
+type ServiceType = 'marketing' | 'finance' | 'accounting' | 'operations' | 'technology' | 'strategy' | 'webDevelopment';
 
 interface ServiceTestimonialsProps {
   serviceType: ServiceType;

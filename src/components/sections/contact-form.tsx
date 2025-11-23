@@ -21,6 +21,7 @@ interface FormData {
   services: string[];
 }
 
+
 const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({
     nombre: "",
@@ -45,6 +46,8 @@ const ContactForm = () => {
 
   const { language } = useLanguage();
   const t = translations[language];
+
+
 
   // Inicializar EmailJS al montar el componente
   useEffect(() => {
@@ -118,10 +121,10 @@ const ContactForm = () => {
     try {
       // ═══════════════════════════════════════════════════════════════
       // 1. ENVIAR EMAIL CON EMAILJS
-      // ═══════════════════════════════════════════════════════════════
+      //  ═══════════════════════════════════════════════════════════════
       console.log('📧 Enviando email con EmailJS...');
       await sendEmail({
-        to_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'tuempresa@gmail.com',
+        to_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'ventatormenta@gmail.com',
         from_name: `${nombre} ${apellido}`,
         from_email: email,
         company_sector: ubicacion,
@@ -153,19 +156,25 @@ const ContactForm = () => {
       // ═══════════════════════════════════════════════════════════════
       // 3. CREAR EVENTO EN GOOGLE CALENDAR
       // ═══════════════════════════════════════════════════════════════
+      let calendarSuccess = false;
       if (fecha && hora) {
         console.log('📅 Creando evento en Google Calendar...');
-        await createCalendarEvent({
-          nombre: `${nombre} ${apellido}`,
-          email,
-          fecha,
-          hora,
-          services: services.join(', '),
-          mensaje,
-        });
-        console.log('✅ Evento creado en Google Calendar');
+        try {
+          await createCalendarEvent({
+            nombre: `${nombre} ${apellido}`,
+            email,
+            fecha,
+            hora,
+            services: services.join(', '),
+            mensaje,
+          });
+          console.log('✅ Evento creado en Google Calendar');
+          calendarSuccess = true;
+        } catch (calendarError) {
+          console.error('❌ Error al crear evento en Calendar (pero continuamos):', calendarError);
+          // No lanzamos error aquí; permitimos que el formulario se envíe exitosamente
+        }
       }
-
       // ═══════════════════════════════════════════════════════════════
       // 4. ABRIR WHATSAPP (OPCIONAL)
       // ═══════════════════════════════════════════════════════════════

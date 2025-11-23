@@ -1,9 +1,9 @@
 "use client";
 
-import { Check, Target, TrendingUp, Users, Crown, Castle, Shield } from 'lucide-react';
+import { Check, Target, TrendingUp, Users, Crown, Castle, Shield, Code } from 'lucide-react';
 import { useLanguage } from '@/contexts/language-context';
 
-type ServiceType = 'marketing' | 'finance' | 'accounting' | 'operations' | 'technology' | 'strategy';
+type ServiceType = 'marketing' | 'finance' | 'accounting' | 'operations' | 'technology' | 'strategy' | 'webDevelopment';
 
 interface ServiceDetailsProps {
   serviceType: ServiceType;
@@ -38,7 +38,6 @@ const detailsData = {
           'Campañas publicitarias en Google y Meta',
           'SEO y posicionamiento web',
           'Content Marketing y estrategia de contenidos',
-          'Email Marketing y automatización',
           'Análisis y reportes mensuales',
         ],
       },
@@ -84,7 +83,6 @@ const detailsData = {
               'Publicaciones ilimitadas',
               'Campañas publicitarias avanzadas',
               'SEO completo y posicionamiento',
-              'Email marketing y automatización',
               'Content marketing profesional',
               'Reportes personalizados',
               'Asesoría 24/7 dedicada',
@@ -121,7 +119,6 @@ const detailsData = {
           'Advertising campaigns on Google and Meta',
           'SEO and web positioning',
           'Content Marketing and content strategy',
-          'Email Marketing and automation',
           'Monthly analysis and reports',
         ],
       },
@@ -167,7 +164,6 @@ const detailsData = {
               'Unlimited posts',
               'Advanced advertising campaigns',
               'Complete SEO and positioning',
-              'Email marketing and automation',
               'Professional content marketing',
               'Custom reports',
               '24/7 dedicated support',
@@ -1020,7 +1016,172 @@ const detailsData = {
       },
     },
   },
+  webDevelopment: {
+  es: {
+    methodology: {
+      title: 'Nuestra Metodología',
+      steps: [
+        'Análisis del sitio web actual',
+        'Identificación de necesidades de mantenimiento y SEO',
+        'Diseño de mejoras y optimizaciones',
+        'Implementación de cambios y actualizaciones',
+        'Monitoreo continuo y soporte post-lanzamiento',
+      ],
+    },
+    benefits: {
+      title: 'Beneficios',
+      items: [
+        'Mejora en el posicionamiento en motores de búsqueda',
+        'Sitio web más rápido y eficiente',
+        'Mayor visibilidad y tráfico orgánico',
+        'Reducción de costos de mantenimiento a largo plazo',
+      ],
+    },
+    whatWeOffer: {
+      title: 'Qué Incluye',
+      items: [
+        'Auditoría SEO completa',
+        'Optimización de velocidad y rendimiento',
+        'Mantenimiento y actualizaciones regulares',
+        'Mejoras en UX/UI para mejor conversión',
+        'Integración de herramientas de análisis',
+        'Soporte técnico continuo',
+      ],
+    },
+    packages: {
+      title: 'Nuestros Paquetes',
+      items: [
+        {
+          name: 'Alfil',
+          price: '$499',
+          period: '/mes',
+          description: 'Ideal para mantenimiento básico y SEO inicial',
+          features: [
+            'Auditoría SEO básica',
+            'Optimización de 1-2 páginas clave',
+            'Mantenimiento mensual',
+            'Soporte por email',
+          ],
+          icon: Code, 
+        },
+        {
+          name: 'Torre',
+          price: '$999',
+          period: '/mes',
+          description: 'Perfecto para mejoras SEO y mantenimiento avanzado',
+          features: [
+            'Auditoría SEO completa',
+            'Optimización de múltiples páginas',
+            'Mejoras en velocidad y UX',
+            'Integración de herramientas de análisis',
+            'Mantenimiento quincenal',
+            'Soporte prioritario',
+          ],
+          icon: Code,
+          popular: true,
+        },
+        {
+          name: 'Reina',
+          price: '$1,999',
+          period: '/mes',
+          description: 'Solución completa para desarrollo y SEO premium',
+          features: [
+            'Desarrollo personalizado de nuevas funcionalidades',
+            'Optimización SEO avanzada y estrategia',
+            'Mantenimiento semanal y monitoreo 24/7',
+            'Integración con APIs y herramientas externas',
+            'Capacitación en herramientas SEO',
+            'Soporte dedicado y consultoría',
+          ],
+          icon: Code, 
+        },
+      ],
+    },
+  },
+  en: {
+    methodology: {
+      title: 'Our Methodology',
+      steps: [
+        'Current website analysis',
+        'Identification of maintenance and SEO needs',
+        'Design of improvements and optimizations',
+        'Implementation of changes and updates',
+        'Continuous monitoring and post-launch support',
+      ],
+    },
+    benefits: {
+      title: 'Benefits',
+      items: [
+        'Improved search engine ranking',
+        'Faster and more efficient website',
+        'Increased visibility and organic traffic',
+        'Long-term maintenance cost reduction',
+      ],
+    },
+    whatWeOffer: {
+      title: 'What\'s Included',
+      items: [
+        'Complete SEO audit',
+        'Speed and performance optimization',
+        'Regular maintenance and updates',
+        'UX/UI improvements for better conversion',
+        'Integration of analytics tools',
+        'Continuous technical support',
+      ],
+    },
+    packages: {
+      title: 'Our Packages',
+      items: [
+        {
+          name: 'Bishop',
+          price: '$499',
+          period: '/month',
+          description: 'Ideal for basic maintenance and initial SEO',
+          features: [
+            'Basic SEO audit',
+            'Optimization of 1-2 key pages',
+            'Monthly maintenance',
+            'Email support',
+          ],
+          icon: Code, 
+        },
+        {
+          name: 'Rook',
+          price: '$999',
+          period: '/month',
+          description: 'Perfect for SEO improvements and advanced maintenance',
+          features: [
+            'Complete SEO audit',
+            'Optimization of multiple pages',
+            'Speed and UX improvements',
+            'Integration of analytics tools',
+            'Bi-weekly maintenance',
+            'Priority support',
+          ],
+          icon: Code, 
+          popular: true,
+        },
+        {
+          name: 'Queen',
+          price: '$1,999',
+          period: '/month',
+          description: 'Complete solution for premium development and SEO',
+          features: [
+            'Custom development of new features',
+            'Advanced SEO optimization and strategy',
+            'Weekly maintenance and 24/7 monitoring',
+            'Integration with APIs and external tools',
+            'Training in SEO tools',
+            'Dedicated support and consulting',
+          ],
+          icon: Code,
+        },
+      ],
+    },
+  },
+},
 };
+
 
 const ServiceDetails = ({ serviceType }: ServiceDetailsProps) => {
   const { language } = useLanguage();

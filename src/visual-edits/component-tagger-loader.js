@@ -407,51 +407,52 @@ function componentTagger(src, map) {
                 }
             },
         });
-        // 2️⃣ Inject attributes with enhanced semantic context.
-        (0, estree_walker_1.walk)(ast, {
-            enter(node) {
-                var _a;
-                if (node.type !== 'JSXOpeningElement')
-                    return;
-                const mapContext = findMapContext(node, variables);
-                const semanticName = getSemanticName(node, mapContext, imageAliases);
-                if (!semanticName ||
-                    ['Fragment', 'React.Fragment'].includes(semanticName) ||
-                    (!isNextImageAlias(imageAliases, semanticName.split('-')[0]) &&
-                        !shouldTag(semanticName)))
-                    return;
-                const { line, column } = node.loc.start;
-                let NextLeveId = `${rel}:${line}:${column}`;
-                // Enhance the ID with context if we have map information
-                if (mapContext) {
-                    NextLeveId += `@${mapContext.arrayName}`;
-                }
-                // 🔍 Append referenced variable locations for simple identifier references in props
-                (_a = node.attributes) === null || _a === void 0 ? void 0 : _a.forEach((attr) => {
-                    var _a, _b;
-                    if (attr.type === 'JSXAttribute' &&
-                        ((_a = attr.value) === null || _a === void 0 ? void 0 : _a.type) === 'JSXExpressionContainer' &&
-                        ((_b = attr.value.expression) === null || _b === void 0 ? void 0 : _b.type) === 'Identifier') {
-                        const refName = attr.value.expression.name;
-                        const varInfo = variables.get(refName);
-                        if (varInfo) {
-                            NextLeveId += `@${refName}`;
-                        }
+   // 2️⃣ Inject attributes with enhanced semantic context.
+    (0, estree_walker_1.walk)(ast, {
+        enter(node) {
+            var _a;
+            if (node.type !== 'JSXOpeningElement')
+                return;
+            const mapContext = findMapContext(node, variables);
+            const semanticName = getSemanticName(node, mapContext, imageAliases);
+            if (!semanticName ||
+                ['Fragment', 'React.Fragment'].includes(semanticName) ||
+                (!isNextImageAlias(imageAliases, semanticName.split('-')[0]) &&
+                    !shouldTag(semanticName)))
+                return;
+            const { line, column } = node.loc.start;
+           let NextlevelId = `${rel}:${line}:${column}`;  // <-- Aquí está el cambio: de NextLeveId a NextlevelId
+           // Enhance the ID with context if we have map information
+            if (mapContext) {
+                NextlevelId += `@${mapContext.arrayName}`;
+            }
+           // 🔍 Append referenced variable locations for simple identifier references in props
+            (_a = node.attributes) === null || _a === void 0 ? void 0 : _a.forEach((attr) => {
+                var _a, _b;
+                if (attr.type === 'JSXAttribute' &&
+                    ((_a = attr.value) === null || _a === void 0 ? void 0 : _a.type) === 'JSXExpressionContainer' &&
+                    ((_b = attr.value.expression) === null || _b === void 0 ? void 0 : _b.type) === 'Identifier') {
+                    const refName = attr.value.expression.name;
+                    const varInfo = variables.get(refName);
+                    if (varInfo) {
+                    NextlevelId += `@${refName}`;
                     }
-                });
-                // 📍 If inside a map context and we have an index variable, inject data-map-index
-                if (mapContext === null || mapContext === void 0 ? void 0 : mapContext.indexVarName) {
-                    ms.appendLeft(node.name.end, ` data-map-index={${mapContext.indexVarName}}`);
                 }
-                ms.appendLeft(node.name.end, ` data-Nextleve-id="${NextleveId}" data-Nextleve-name="${semanticName}"`);
-                mutated = true;
-            },
-        });
+            });
+           // 📍 If inside a map context and we have an index variable, inject data-map-index
+            if (mapContext === null || mapContext === void 0 ? void 0 : mapContext.indexVarName) {
+                ms.appendLeft(node.name.end, ` data-map-index={${mapContext.indexVarName}}`);
+            }
+            ms.appendLeft(node.name.end, ` data-Nextlevel-id="${NextlevelId}" data-Nextlevel-name="${semanticName}"`);
+            mutated = true;
+        },
+    });
+    
         if (!mutated)
             return done(null, src, map);
         const out = ms.toString();
         const outMap = ms.generateMap({ hires: true });
-        /* Turbopack expects the sourcemap as a JSON *string*. */
+        
         done(null, out, JSON.stringify(outMap));
     }
     catch (err) {

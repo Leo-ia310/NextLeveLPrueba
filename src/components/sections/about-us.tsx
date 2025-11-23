@@ -59,14 +59,14 @@ const StatCard = ({
   }, [isVisible, number, progressPercentage]);
 
   return (
-    <article className="group rounded-2xl border border-[#009299]/30 bg-[#009299]/10 p-4 text-center backdrop-blur-sm transition hover:-translate-y-1 hover:border-[#009299]/60 hover:bg-[#009299]/15 hover:shadow-[0_0_24px_rgba(0,146,153,0.2)] md:text-left">
+    <article className="group flex-1 rounded-2xl border border-[#009299]/30 bg-[#009299]/10 p-4 text-center backdrop-blur-sm transition hover:-translate-y-1 hover:border-[#009299]/60 hover:bg-[#009299]/15 hover:shadow-[0_0_24px_rgba(0,146,153,0.2)] md:text-left">
       <h3 className="sr-only">{srLabel}</h3>
       <div>
         <div className="flex items-baseline justify-center gap-1 sm:justify-start">
           <span className="text-4xl font-extrabold leading-none tracking-tight sm:text-5xl lg:text-6xl" aria-label={`${displayNumber}${suffix}`}>
             {displayNumber}
           </span>
-          <span className="text-lg opacity-80 sm:text-xl" aria-hidden="true">{suffix}</span>
+          <span className="text-4xl font-extrabold leading-none tracking-tight sm:text-5xl lg:text-6xl opacity-80" aria-hidden="true">{suffix}</span>
         </div>
         <div className="mx-auto mt-2 h-[2px] w-full bg-white/10 sm:mx-0" role="progressbar" aria-valuenow={displayProgress} aria-valuemin={0} aria-valuemax={100} aria-label={`Progreso: ${displayProgress}%`}>
           <div
@@ -88,14 +88,6 @@ const AboutUsSection = () => {
   const t = translations[language];
 
   const statsData: Omit<StatCardProps, "isVisible">[] = [
-    {
-      srLabel: language === 'es' ? "Clientes satisfechos" : "Satisfied clients",
-      number: "100",
-      suffix: "+",
-      label: t.about.stats.years.label,
-      subLabel: t.about.stats.years.subLabel,
-      progressPercentage: 90,
-    },
     {
       srLabel: language === 'es' ? "Servicio" : "Service",
       number: "100",
@@ -147,7 +139,7 @@ const AboutUsSection = () => {
           <p className="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-white/85 sm:text-base md:mx-0">
             {t.about.description}
           </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 flex flex-wrap gap-4">
             {statsData.map((stat) => (
               <StatCard key={stat.label} {...stat} isVisible={isVisible} />
             ))}
