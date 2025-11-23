@@ -5,7 +5,6 @@ import { ArrowRight, CheckCircle2, Plus, Calendar, Clock } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useLanguage } from '@/contexts/language-context';
 import { translations } from '@/lib/translations';
-import { initEmailJS, sendEmail } from '@/lib/emailjs';
 import { sendToGoogleSheet, SheetFormData, checkAvailabilityInSheet } from '@/lib/google-sheets';
 import { CalendarAvailability } from '@/components/ui/calendar-availability';
 
@@ -46,9 +45,6 @@ const ContactForm = () => {
   const t = translations[language];
 
   // Inicializar EmailJS al montar el componente
-  useEffect(() => {
-    initEmailJS();
-  }, []);
 
   // Verificar disponibilidad en Google Sheets cuando cambien fecha o hora
   useEffect(() => {
@@ -127,25 +123,16 @@ const ContactForm = () => {
     const { nombre, apellido, email, ubicacion, mensaje, fecha, hora, services } = formData;
     
     try {
-      // ═══════════════════════════════════════════════════════════════
-      // 1. ENVIAR EMAIL CON EMAILJS
-      //  ═══════════════════════════════════════════════════════════════
-      console.log('📧 Enviando email con EmailJS...');
-      await sendEmail({
-        to_email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'ventatormenta@gmail.com',
-        from_name: `${nombre} ${apellido}`,
-        from_email: email,
-        company_sector: ubicacion,
-        services: services.join(', '),
-        preferred_date: fecha,
-        preferred_time: hora,
-        message: mensaje,
-      });
-      console.log('✅ Email enviado exitosamente');
 
-      // ═══════════════════════════════════════════════════════════════
-      // 2. GUARDAR EN GOOGLE SHEETS
-      // ═══════════════════════════════════════════════════════════════
+        
+        
+        
+        
+        
+      
+      
+
+    
       console.log('📊 Guardando en Google Sheets...');
       const sheetData: SheetFormData = {
         nombre,
@@ -179,8 +166,6 @@ const ContactForm = () => {
       setIsSubmitting(false);
     }
   };
-
-  // ... (el resto del JSX del componente permanece igual)
 
 
   return (
