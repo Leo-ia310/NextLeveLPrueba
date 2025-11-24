@@ -7,8 +7,10 @@ export const translations = {
       services: 'SERVICIOS',
       projects: 'CASOS DE ÉXITO',
       contact: 'CONTACTO',
+      Blog: 'BLOG',
       quote: 'CONSULTORÍA',
     },
+      
     // Hero
     hero: {
       badge: 'Next Level · BUSINESS CONSULTING',
@@ -342,6 +344,7 @@ export const translations = {
       services: 'SERVICES',
       projects: 'SUCCESS CASES',
       contact: 'CONTACT',
+      Blog: 'BLOG',
       quote: 'CONSULTING',
     },
     // Hero

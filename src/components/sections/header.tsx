@@ -19,6 +19,7 @@ export default function Header() {
     { name: t.nav.home, href: '/', active: true },
     { name: t.nav.about, href: '/#nosotros', active: false },
     { name: t.nav.contact, href: '/#contacto', active: false },
+    { name: t.nav.Blog, href: '/services/blog', active: false },
   ];
 
   const serviceItems = [
@@ -28,7 +29,7 @@ export default function Header() {
     { name: language === 'es' ? 'Tecnológica' : 'Technology', href: '/services/technology' },
     { name: language === 'es' ? 'Estratégica' : 'Strategy', href: '/services/strategy' },
     { name: language === 'es' ? 'Marketing' : 'Marketing', href: '/services/marketing' },
-    { name: language === 'es' ? 'Desarrollo Web' : 'webDevelopmen', href: '/services/webDevelopment' },
+    { name: language === 'es' ? 'Desarrollo Web' : 'Web Development', href: '/services/webDevelopment' },
   ];
 
   const handleScroll = useCallback(() => {
