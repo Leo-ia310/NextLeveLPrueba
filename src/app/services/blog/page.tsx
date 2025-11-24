@@ -9,6 +9,7 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Calendar, Clock, Play, TrendingUp, Users, DollarSign, Briefcase } from 'lucide-react';
 import Header from '@/components/sections/header';
 import Footer from '@/components/sections/footer';
+import { useLanguage } from '@/contexts/language-context';
 
 // Definir tipos para evitar errores de TypeScript
 type Category = 'todos' | 'finanzas' | 'consultoria' | 'tendencias';
@@ -28,6 +29,8 @@ type Post = {
     name: string;
     avatar: string;
   };
+  isVideoOnly?: boolean; // Nuevo: indica si el post es solo video (como un short)
+  videoTitle?: string; // Nuevo: título específico para el video si es solo video
 };
 
 type CategoryItem = {
@@ -43,6 +46,7 @@ const translations = {
       title: 'Insights y Tendencias',
       description: 'Mantente actualizado con noticias reales, análisis profundos y estrategias basadas en datos.',
       noPosts: 'No hay posts en esta categoría todavía',
+      introVideoUrl: 'https://www.youtube.com/watch?v=wwSXz0JJje8', // Cambiado a URL completo en lugar de ID
       readMore: 'Leer más',
       categories: [
         { label: 'Todos', value: 'todos' as Category },
@@ -66,6 +70,7 @@ const translations = {
             name: 'María Fernández',
             avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
           },
+          isVideoOnly: false, // Nuevo: indica que no es solo video
         },
         {
           id: 2,
@@ -82,6 +87,7 @@ const translations = {
             name: 'Carlos López',
             avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
           },
+          isVideoOnly: false, // Nuevo: indica que no es solo video
         },
         {
           id: 3,
@@ -98,6 +104,26 @@ const translations = {
             name: 'Laura Gómez',
             avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
           },
+          isVideoOnly: false, // Nuevo: indica que no es solo video
+        },
+        // Ejemplo de post solo video (como un short)
+        {
+          id: 4,
+          title: 'Short: Tendencia Rápida en Finanzas 2025',
+          slug: 'short-tendencia-finanzas-2025',
+          excerpt: '', // Vacío para posts solo video
+          image: '', // Vacío para posts solo video
+          youtubeId: 'dQw4w9WgXcQ', // ID del video short
+          category: 'finanzas' as Category,
+          tags: ['short', 'finanzas', 'tendencia'],
+          date: '2024-11-25',
+          readTime: '1 min', // Tiempo de lectura corto para shorts
+          author: {
+            name: 'Ana Ruiz',
+            avatar: 'https://randomuser.me/api/portraits/women/50.jpg',
+          },
+          isVideoOnly: true, // Nuevo: indica que es solo video
+          videoTitle: 'Tendencia Rápida en Finanzas 2025', // Nuevo: título específico para el video
         },
       ] as Post[],
     },
@@ -109,6 +135,7 @@ const translations = {
       title: 'Insights and Trends',
       description: 'Stay updated with real news, in-depth analysis, and data-driven strategies.',
       noPosts: 'No posts in this category yet',
+      introVideoUrl: 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE', // Cambiado a URL completo en lugar de ID
       readMore: 'Read more',
       categories: [
         { label: 'All', value: 'todos' as Category },
@@ -132,6 +159,7 @@ const translations = {
             name: 'Maria Fernandez',
             avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
           },
+          isVideoOnly: false, // Nuevo: indica que no es solo video
         },
         {
           id: 2,
@@ -148,6 +176,7 @@ const translations = {
             name: 'Carlos Lopez',
             avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
           },
+          isVideoOnly: false, // Nuevo: indica que no es solo video
         },
         {
           id: 3,
@@ -164,6 +193,26 @@ const translations = {
             name: 'Laura Gomez',
             avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
           },
+          isVideoOnly: false, // Nuevo: indica que no es solo video
+        },
+        // Ejemplo de post solo video (como un short)
+        {
+          id: 4,
+          title: 'Short: Quick Finance Trend 2025',
+          slug: 'short-quick-finance-trend-2025',
+          excerpt: '', // Vacío para posts solo video
+          image: '', // Vacío para posts solo video
+          youtubeId: 'dQw4w9WgXcQ', // ID del video short
+          category: 'finanzas' as Category,
+          tags: ['short', 'finance', 'trend'],
+          date: '2024-11-25',
+          readTime: '1 min', // Tiempo de lectura corto para shorts
+          author: {
+            name: 'Ana Ruiz',
+            avatar: 'https://randomuser.me/api/portraits/women/50.jpg',
+          },
+          isVideoOnly: true, // Nuevo: indica que es solo video
+          videoTitle: 'Quick Finance Trend 2025', // Nuevo: título específico para el video
         },
       ] as Post[],
     },
@@ -171,7 +220,6 @@ const translations = {
 };
 
 
-// Función para obtener iconos de categoría
 function getCategoryIcon(category: Category) {
   switch (category) {
     case 'finanzas':
@@ -184,9 +232,6 @@ function getCategoryIcon(category: Category) {
       return <Users className="h-4 w-4" />;
   }
 }
-
-// Hook para idioma (asumiendo que existe; si no, puedes hardcodear 'es' o 'en')
-const useLanguage = (): { language: 'es' | 'en' } => ({ language: 'es' });  // Cambia a 'en' si necesitas inglés por defecto
 
 export default function BlogPage() {
   const { language } = useLanguage();
@@ -203,205 +248,257 @@ export default function BlogPage() {
   const featuredPost = posts.find((post: Post) => post.category === 'finanzas'); // Ejemplo: el primer post de finanzas como destacado
 
   return (
-    <>
-      <Header />
-      <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
-        {/* Hero Section */}
-        <section className="container mx-auto px-4 pt-16 pb-8">
-          <div className="text-center space-y-4 mb-12">
-            <Badge variant="secondary" className="mb-4">
-              {t.blog.badge}
-            </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              {t.blog.title}
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              {t.blog.description}
-            </p>
-          </div>
+  <>
+    <Header />
+    <div className="min-h-screen bg-blue-950 -mt-20 pt-20"> {/* Agregado pt-20 para padding top */}
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 pt-20 pb-12 mt-8">
+        <div className="text-center space-y-4 mb-12">
+          <Badge variant="secondary" className="mb-4 bg-teal-500 text-white">
+            {t.blog.badge}
+          </Badge>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold tracking-tight text-white">
+            {t.blog.title}
+          </h1>
+          <p className="text-xl text-blue-200 max-w-2xl mx-auto">
+            {t.blog.description}
+          </p>
+        </div>
 
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
-            {categories.map((category: CategoryItem) => (
-              <Button
-                key={category.value}
-                variant={selectedCategory === category.value ? "default" : "outline"}
-                onClick={() => setSelectedCategory(category.value)}
-                className="rounded-full"
-              >
-                {category.label}
-              </Button>
-            ))}
-          </div>
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
+          {categories.map((category: CategoryItem) => (
+            <Button
+              key={category.value}
+              variant={selectedCategory === category.value ? "default" : "outline"}
+              onClick={() => setSelectedCategory(category.value)}
+              className={`rounded-md ${
+                selectedCategory === category.value
+                  ? "bg-teal-500 hover:bg-teal-600 text-white"
+                  : "border-teal-500 text-teal-500 bg-transparent hover:bg-teal-500/10"
+              }`}
+            >
+              {category.label}
+            </Button>
+          ))}
+        </div>
 
-          {/* Featured Post */}
-          {selectedCategory === "todos" && featuredPost && (
-            <Card className="mb-12 overflow-hidden border-2 hover:shadow-2xl transition-all duration-300">
-              <div className="grid md:grid-cols-2 gap-0">
-                <div className="relative h-64 md:h-full">
-                  {featuredPost.youtubeId ? (
-                    <div className="relative w-full h-full">
-                      <iframe
-                        className="w-full h-full"
-                        src={`https://www.youtube.com/embed/${featuredPost.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${featuredPost.youtubeId}`}
-                        title={featuredPost.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                      <Badge className="absolute top-4 left-4 z-10">
-                        Destacado
-                      </Badge>
+        {/* Video de Presentación */}
+        {selectedCategory === "todos" && t.blog.introVideoUrl && (
+          <div className="mb-12 flex justify-center">
+            <div className="relative w-full max-w-4xl h-64 md:h-96 rounded-lg overflow-hidden shadow-lg">
+              {/* Capa que bloquea interacción */}
+              <div className="absolute inset-0 z-10 pointer-events-none"></div>
+              <iframe
+                className="w-full h-full pointer-events-none"
+                src={`https://www.youtube.com/embed/${getYouTubeVideoId(t.blog.introVideoUrl)}?autoplay=1&mute=1&loop=1&playlist=${getYouTubeVideoId(t.blog.introVideoUrl)}&controls=0&modestbranding=1&rel=0&disablekb=1`}
+                title="Video de Presentación"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Featured Post */}
+        {selectedCategory === "todos" && featuredPost && (
+          <Card className="mb-12 overflow-hidden border-2 border-blue-800 hover:shadow-2xl transition-all duration-300 rounded-lg bg-blue-900/50">
+            <div className="grid md:grid-cols-2 gap-0">
+              <div className="relative h-64 md:h-full rounded-l-lg overflow-hidden">
+                {featuredPost.youtubeId ? (
+                  <div className="relative w-full h-full">
+                    <iframe
+                      className="w-full h-full rounded-l-lg"
+                      src={`https://www.youtube.com/embed/${featuredPost.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${featuredPost.youtubeId}`}
+                      title={featuredPost.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                    <Badge className="absolute top-4 left-4 z-10 bg-teal-500 text-white">
+                      Destacado
+                    </Badge>
+                  </div>
+                ) : (
+                  <>
+                    <Image
+                      src={featuredPost.image}
+                      alt={featuredPost.title}
+                      fill
+                      className="object-cover rounded-l-lg"
+                    />
+                    <Badge className="absolute top-4 left-4 bg-teal-500 text-white">
+                      Destacado
+                    </Badge>
+                  </>
+                )}
+              </div>
+              <div className="p-8 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    {getCategoryIcon(featuredPost.category)}
+                    <Badge variant="outline" className="capitalize border-teal-500 text-teal-400">
+                      {featuredPost.category}
+                    </Badge>
+                  </div>
+                  <h2 className="text-3xl font-serif font-bold mb-4 hover:text-teal-400 transition-colors text-white">
+                    <Link href={`/blog/${featuredPost.slug}`}>
+                      {featuredPost.title}
+                    </Link>
+                  </h2>
+                  <p className="text-blue-200 mb-6 line-clamp-3">
+                    {featuredPost.excerpt}
+                  </p>
+                  <div className="flex items-center gap-4 text-sm text-blue-300 mb-6">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="h-4 w-4" />
+                      {new Date(featuredPost.date).toLocaleDateString(language === 'es' ? 'es-ES' : 'en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
                     </div>
+                    <div className="flex items-center gap-1">
+                      <Clock className="h-4 w-4" />
+                      {featuredPost.readTime}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <Image
+                      src={featuredPost.author.avatar}
+                      alt={featuredPost.author.name}
+                      width={40}
+                      height={40}
+                      className="rounded-full"
+                    />
+                    <span className="font-medium text-white">{featuredPost.author.name}</span>
+                  </div>
+                  <Button asChild className="bg-teal-500 hover:bg-teal-600 text-white rounded-md">
+                    <Link href={`/blog/${featuredPost.slug}`}>
+                      {t.blog.readMore}
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </Card>
+        )}
+      </section>
+
+      {/* Blog Grid */}
+      <section className="container mx-auto px-4 pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredPosts.map((post: Post) => (
+            <Card 
+              key={post.id} 
+              className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col rounded-lg bg-blue-900/50 border border-blue-800"
+            >
+              <Link href={`/blog/${post.slug}`}>
+                <div className="relative h-48 overflow-hidden rounded-t-lg">
+                  {post.isVideoOnly && post.youtubeId ? (
+                    <iframe
+                      className="w-full h-full rounded-t-lg"
+                      src={`https://www.youtube.com/embed/${post.youtubeId}?controls=1&modestbranding=1&rel=0`}
+                      title={post.videoTitle || post.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
                   ) : (
                     <>
                       <Image
-                        src={featuredPost.image}
-                        alt={featuredPost.title}
+                        src={post.image}
+                        alt={post.title}
                         fill
-                        className="object-cover"
+                        className="object-cover hover:scale-110 transition-transform duration-300 rounded-t-lg"
                       />
-                      <Badge className="absolute top-4 left-4">
-                        Destacado
-                      </Badge>
+                      {post.youtubeId && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-t-lg">
+                          <div className="h-12 w-12 rounded-full bg-white/90 flex items-center justify-center">
+                            <Play className="h-6 w-6 text-teal-500 ml-1" />
+                          </div>
+                        </div>
+                      )}
                     </>
                   )}
-                </div>
-                <div className="p-8 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 mb-4">
-                      {getCategoryIcon(featuredPost.category)}
-                      <Badge variant="outline" className="capitalize">
-                        {featuredPost.category}
-                      </Badge>
-                    </div>
-                    <h2 className="text-3xl font-bold mb-4 hover:text-primary transition-colors">
-                      <Link href={`/blog/${featuredPost.slug}`}>
-                        {featuredPost.title}
-                      </Link>
-                    </h2>
-                    <p className="text-muted-foreground mb-6">
-                      {featuredPost.excerpt}
-                    </p>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-4 w-4" />
-                        {new Date(featuredPost.date).toLocaleDateString(language === 'es' ? 'es-ES' : 'en-US', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="h-4 w-4" />
-                        {featuredPost.readTime}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <Image
-                        src={featuredPost.author.avatar}
-                        alt={featuredPost.author.name}
-                        width={40}
-                        height={40}
-                        className="rounded-full"
-                      />
-                      <span className="font-medium">{featuredPost.author.name}</span>
-                    </div>
-                    <Button asChild>
-                      <Link href={`/blog/${featuredPost.slug}`}>
-                        {t.blog.readMore}
-                      </Link>
-                    </Button>
+                  <div className="absolute top-3 right-3">
+                    <Badge variant="secondary" className="capitalize flex items-center gap-1 bg-teal-500 text-white">
+                      {getCategoryIcon(post.category)}
+                      {post.category}
+                    </Badge>
                   </div>
                 </div>
-              </div>
-            </Card>
-          )}
-        </section>
-
-        {/* Blog Grid */}
-        <section className="container mx-auto px-4 pb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPosts.map((post: Post) => (
-              <Card 
-                key={post.id} 
-                className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
-              >
+              </Link>
+              <CardHeader>
                 <Link href={`/blog/${post.slug}`}>
-                  <div className="relative h-48 overflow-hidden">
-                    <Image
-                      src={post.image}
-                      alt={post.title}
-                      fill
-                      className="object-cover hover:scale-110 transition-transform duration-300"
-                    />
-                    {post.youtubeId && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                        <div className="h-12 w-12 rounded-full bg-white/90 flex items-center justify-center">
-                          <Play className="h-6 w-6 text-primary ml-1" />
-                        </div>
-                      </div>
-                    )}
-                    <div className="absolute top-3 right-3">
-                      <Badge variant="secondary" className="capitalize flex items-center gap-1">
-                        {getCategoryIcon(post.category)}
-                        {post.category}
-                      </Badge>
-                    </div>
-                  </div>
+                  <h3 className="text-xl font-serif font-bold line-clamp-2 hover:text-teal-400 transition-colors text-white">
+                    {post.isVideoOnly ? (post.videoTitle || post.title) : post.title}
+                  </h3>
                 </Link>
-                <CardHeader>
-                  <Link href={`/blog/${post.slug}`}>
-                    <h3 className="text-xl font-bold line-clamp-2 hover:text-primary transition-colors">
-                      {post.title}
-                    </h3>
-                  </Link>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground line-clamp-3">
-                    {post.excerpt}
-                  </p>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                {!post.isVideoOnly && (
+                  <>
+                    <p className="text-blue-200 line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {post.tags.slice(0, 2).map((tag: string) => (
+                        <Badge key={tag} variant="outline" className="text-xs border-teal-500 text-teal-400">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </>
+                )}
+                {post.isVideoOnly && (
                   <div className="flex flex-wrap gap-2 mt-4">
                     {post.tags.slice(0, 2).map((tag: string) => (
-                      <Badge key={tag} variant="outline" className="text-xs">
+                      <Badge key={tag} variant="outline" className="text-xs border-teal-500 text-teal-400">
                         {tag}
                       </Badge>
                     ))}
                   </div>
-                </CardContent>
-                <CardFooter className="flex items-center justify-between pt-4 border-t">
-                  <div className="flex items-center gap-2">
-                    <Image
-                      src={post.author.avatar}
-                      alt={post.author.name}
-                      width={32}
-                      height={32}
-                      className="rounded-full"
-                    />
-                    <div className="text-sm">
-                      <p className="font-medium">{post.author.name}</p>
-                    </div>
+                )}
+              </CardContent>
+              <CardFooter className="flex items-center justify-between pt-4 border-t border-blue-800">
+                <div className="flex items-center gap-2">
+                  <Image
+                    src={post.author.avatar}
+                    alt={post.author.name}
+                    width={32}
+                    height={32}
+                    className="rounded-full"
+                  />
+                  <div className="text-sm">
+                    <p className="font-medium text-white">{post.author.name}</p>
                   </div>
-                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <Clock className="h-3 w-3" />
-                    {post.readTime}
-                  </div>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
+                </div>
+                <div className="flex items-center gap-1 text-xs text-blue-300">
+                  <Clock className="h-3 w-3" />
+                  {post.readTime}
+                </div>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
 
-          {filteredPosts.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-xl text-muted-foreground">
-                {t.blog.noPosts}
-              </p>
-            </div>
-          )}
-        </section>
-      </div>
-      <Footer />
-    </>
-  );
+        {filteredPosts.length === 0 && (
+          <div className="text-center py-16">
+            <p className="text-xl text-blue-200">
+              {t.blog.noPosts}
+            </p>
+          </div>
+        )}
+      </section>
+    </div>
+    <Footer />
+  </>
+);
+
+// Función helper para extraer el ID del video de YouTube desde una URL completa
+function getYouTubeVideoId(url: string): string | null {
+  const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+  const match = url.match(regex);
+  return match ? match[1] : null;
+}
 }

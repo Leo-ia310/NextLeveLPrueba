@@ -29,7 +29,7 @@ const Footer = () => {
     );
   const whatsappHref = `https://wa.me/${phoneNumber}?text=${whatsappText}`;
 
-  const emailTo = 'ceo@nextlevelbusinessco.com';
+  const emailTo = 'contact@nextlevelbusinessco.com';
   const emailSubject = encodeURIComponent(
     language === 'es' ? 'Consulta' : 'Inquiry'
   );
@@ -127,7 +127,7 @@ const Footer = () => {
                       aria-label={language === 'es' ? 'Enviar email' : 'Send email'}
                     >
                       <Mail className="h-4 w-4 flex-shrink-0" />
-                      <span>ceo@nextlevelbusinessco.com</span>
+                      <span>contact@nextlevelbusinessco.com</span>
                     </a>
                   </li>
                   <li>
