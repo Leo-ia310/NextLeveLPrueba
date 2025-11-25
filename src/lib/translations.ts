@@ -1,3 +1,5 @@
+import { Phone } from "lucide-react";
+
 export const translations = {
   es: {
     // Header/Nav
@@ -302,6 +304,7 @@ export const translations = {
       form: {
         firstName: 'Nombre',
         lastName: 'Apellido',
+        Phone: 'Telefono',
         email: 'Email (opcional)',
         location: '¿En qué sector está tu empresa?',
         message: 'Contanos cómo podemos ayudarte:',
@@ -637,6 +640,7 @@ export const translations = {
       form: {
         firstName: 'First Name',
         lastName: 'Last Name',
+        Phone: 'Phone',
         email: 'Email (optional)',
         location: 'What sector is your company in?',
         message: 'Tell us how we can help you:',

@@ -7,6 +7,7 @@
 export interface SheetFormData {
   nombre: string;
   apellido: string;
+  telefono: string;
   email: string;
   ubicacion: string;
   services: string;

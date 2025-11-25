@@ -11,6 +11,7 @@ import { CalendarAvailability } from '@/components/ui/calendar-availability';
 interface FormData {
   nombre: string;
   apellido: string;
+  telefono: string;
   email: string;
   ubicacion: string;
   mensaje: string;
@@ -23,6 +24,7 @@ const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({
     nombre: "",
     apellido: "",
+    telefono: "",
     email: "",
     ubicacion: "",
     mensaje: "",
@@ -120,23 +122,15 @@ const ContactForm = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    const { nombre, apellido, email, ubicacion, mensaje, fecha, hora, services } = formData;
+    const { nombre, apellido, telefono ,email, ubicacion, mensaje, fecha, hora, services } = formData;
     
     try {
 
-        
-        
-        
-        
-        
-      
-      
-
-    
       console.log('📊 Guardando en Google Sheets...');
       const sheetData: SheetFormData = {
         nombre,
         apellido,
+        telefono,
         email,
         ubicacion,
         services: services.join(', '),
@@ -255,13 +249,52 @@ const ContactForm = () => {
                     onChange={handleChange}
                     disabled={isSubmitting}
                   />
+                
                 </div>
                 <div className="mt-4">
+                  <input
+                    name="telefono"
+                    type="tel"
+                    placeholder={t.contact.form.Phone}
+                    inputMode="numeric"
+                    onKeyDown={(e) => {
+                      const allowedKeys = [
+                        "Backspace",
+                        "Delete",
+                        "ArrowLeft",
+                        "ArrowRight",
+                        "Tab",
+                        "+",
+                        "(",
+                        ")",
+                        " "
+                      ];
+                  
+                      // Permitir números, teclas útiles y símbolos específicos
+                      if (
+                        !/[0-9]/.test(e.key) &&
+                        !allowedKeys.includes(e.key)
+                      ) {
+                        e.preventDefault();
+                      }
+                    }}
+                    onPaste={(e) => {
+                  
+                      const text = e.clipboardData.getData("text");
+                      if (!/^[0-9()+ ]+$/.test(text)) {
+                        e.preventDefault();
+                      }
+                    }}
+                    className="w-full rounded-md border border-[#009299]/30 bg-[#041b45]/80 px-4 py-3 text-base text-white/90 ring-offset-[#041b45] placeholder:text-neutral-400                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009299] focus-visible:ring-offset-2"
+                    value={formData.telefono}
+                    onChange={handleChange}
+                    disabled={isSubmitting}
+                  />
                   <input
                     name="email"
                     type="email"
                     placeholder={t.contact.form.email}
-                    className="w-full rounded-md border border-[#009299]/30 bg-[#041b45]/80 px-4 py-3 text-base text-white/90 ring-offset-[#041b45] placeholder:text-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009299] focus-visible:ring-offset-2"
+                    className="mt-4 w-full rounded-md border border-[#009299]/30 bg-[#041b45]/80 px-4 py-3 text-base text-white/90 ring-offset-[#041b45] placeholder:text-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009299] focus-visible:ring-offset-2"
                     value={formData.email}
                     onChange={handleChange}
                     disabled={isSubmitting}
