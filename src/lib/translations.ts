@@ -16,20 +16,42 @@ export const translations = {
     // Hero
     hero: {
       badge: 'Next Level · BUSINESS CONSULTING',
-      title: 'Consultoría de Marketing, Finanzas y Contabilidad',
+      title: 'Consultoria de Negocios',
       slide1: {
         category: 'MARKETING ESTRATÉGICO - CRECIMIENTO Y POSICIONAMIENTO',
         description: 'Impulsamos tu negocio con estrategias de marketing innovadoras y efectivas.',
       },
       slide2: {
-        category: 'ASESORÍA FINANCIERA INTEGRAL',
+        category: 'ASESORÍA FINANCIERA',
         description: 'Optimizamos tus finanzas para maximizar rentabilidad y crecimiento sostenible.',
       },
       slide3: {
         category: 'CONTABILIDAD Y GESTIÓN EMPRESARIAL',
         description: 'Mantenemos tus cuentas en orden para que te enfoques en hacer crecer tu negocio.',
       },
-      cta: 'CASOS DE ÉXITO',
+        slide4: {
+        category: 'GESTION DE OPERACIONES',
+        description: 'Mejoramos la eficiencia de tus procesos para optimizar recursos y tiempo.',
+      },
+      slide5: {
+        category: 'TECNOLOGÍA Y TRANSFORMACIÓN',
+        description: 'Implementamos soluciones tecnológicas que impulsan la innovación y competitividad de tu empresa.',
+      },
+      slide6: {
+        category: 'ESTRATEGIA EMPRESARIAL',
+        description: 'Diseñamos planes estratégicos que aseguran crecimiento sostenido y ventaja competitiva.',
+      },
+      slide7: {
+        category: 'DESARROLLO WEB · MANTENIMIENTO · SEO',
+        description: 'Creamos plataformas digitales atractivas y funcionales para potenciar tu presencia online.',
+      },
+      cta1: 'Ver Servicio', 
+      cta2: 'Ver Servicio', 
+      cta3: 'Ver Servicio', 
+      cta4: 'Ver Servicio', 
+      cta5: 'Ver Servicio', 
+      cta6: 'Ver Servicio', 
+      cta7: 'Ver Servicio' 
     },
     // Mission & Vision
     missionVision: {
@@ -353,7 +375,7 @@ export const translations = {
     // Hero
     hero: {
       badge: 'Next Level · BUSINESS CONSULTING',
-      title: 'Marketing, Finance and Accounting Consulting',
+      title: 'Business Consulting',
       slide1: {
         category: 'STRATEGIC MARKETING - GROWTH AND POSITIONING',
         description: 'We boost your business with innovative and effective marketing strategies.',
@@ -366,7 +388,30 @@ export const translations = {
         category: 'ACCOUNTING AND BUSINESS MANAGEMENT',
         description: 'We keep your accounts in order so you can focus on growing your business.',
       },
-      cta: 'SUCCESS CASES',
+            slide4: {
+        category: 'OPERATIONS MANAGEMENT',
+        description: 'We improve the efficiency of your processes to optimize resources and time.',
+      },
+      slide5: {
+        category: 'TECHNOLOGY & TRANSFORMATION',
+        description: 'We implement technological solutions that drive innovation and competitiveness for your company.',
+      },
+      slide6: {
+        category: 'BUSINESS STRATEGY',
+        description: 'We design strategic plans that ensure sustainable growth and competitive advantage.',
+      },
+      slide7: {
+        category: 'WEB DEVELOPMENT · MAINTENANCE · SEO',
+        description: 'We create attractive and functional digital platforms to enhance your online presence.',
+      },
+
+      cta1: 'View Service', 
+      cta2: 'View Service', 
+      cta3: 'View Service', 
+      cta4: 'View Service', 
+      cta5: 'View Service', 
+      cta6: 'View Service', 
+      cta7: 'View Service', 
     },
     // Mission & Vision
     missionVision: {

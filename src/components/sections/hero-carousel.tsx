@@ -23,6 +23,22 @@ const slideImages: Slide[] = [
   {
     imgSrc: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/1e59a2b4-1255-4495-a26b-2e5ea7a74660/generated_images/accounting-and-business-management-conce-8c2a96f2-20251029233035.jpg",
     alt: "Contabilidad y Gestión Empresarial - Control Financiero Profesional",
+  },
+  {
+    imgSrc: "https://plus.unsplash.com/premium_photo-1681074963670-2110c58f4c24?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    alt: "GESTION DE OPERACIONES",
+  },
+  {
+    imgSrc: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/1e59a2b4-1255-4495-a26b-2e5ea7a74660/generated_images/financial-advisory-concept-illustration--17047cd6-20251029233035.jpg",
+    alt: "TECNOLOGÍA Y TRANSFORMACIÓN",
+  },
+  {
+    imgSrc: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/1e59a2b4-1255-4495-a26b-2e5ea7a74660/generated_images/accounting-and-business-management-conce-8c2a96f2-20251029233035.jpg",
+    alt: "ESTRATEGIA EMPRESARIAL",
+  },
+  {
+    imgSrc: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/1e59a2b4-1255-4495-a26b-2e5ea7a74660/generated_images/accounting-and-business-management-conce-8c2a96f2-20251029233035.jpg",
+    alt: "'DESARROLLO WEB · MANTENIMIENTO · SEO",
   }
 ];
 
@@ -49,8 +65,28 @@ const HeroCarousel = () => {
   }, [nextSlide]);
 
   const activeSlide = slideImages[currentIndex];
-  const slideContent = [t.hero.slide1, t.hero.slide2, t.hero.slide3];
+  const slideContent = [
+    t.hero.slide1,
+    t.hero.slide2,
+    t.hero.slide3,
+    t.hero.slide4,
+    t.hero.slide5,
+    t.hero.slide6,
+    t.hero.slide7
+  ];
   const activeContent = slideContent[currentIndex];
+
+  // Array de botones dinámicos para cada slider (textos desde translations, href hardcodeados)
+  const slideButtons = [
+    { text: t.hero.cta1, href: "/services/marketing" }, // Slider 1: enlace a servicios
+    { text: t.hero.cta2, href: "/services/finance" }, // Slider 2: enlace a contacto
+    { text: t.hero.cta3, href: "/services/accounting" }, // Slider 3: enlace a nosotros
+    { text: t.hero.cta4, href: "/services/operations" }, // Slider 4: enlace a proyectos
+    { text: t.hero.cta5, href: "/services/technology" }, // Slider 5: enlace a blog
+    { text: t.hero.cta6, href: "/services/strategy" }, // Slider 6: enlace a testimonios
+    { text: t.hero.cta7, href: "/services/webDevelopment" } // Slider 7: enlace a FAQ
+  ];
+  const activeButton = slideButtons[currentIndex];
 
   return (
     <section className="relative h-screen min-h-[500px] w-full bg-[#041b45] text-white md:min-h-[640px]" aria-label="Servicios destacados de consultoría empresarial">
@@ -86,22 +122,22 @@ const HeroCarousel = () => {
 
           <div className="mt-2 text-xs text-white/80 transition-opacity duration-500 sm:mt-3 sm:text-sm">
             <div key={`category-${currentIndex}`} className="font-semibold tracking-wide animate-in fade-in duration-500">
-              {activeContent.category}
+              {activeContent?.category || 'Categoría por defecto'}
             </div>
           </div>
 
           <div className="mt-3 w-full max-w-md border border-[#009299]/20 bg-white/5 p-3 backdrop-blur-sm sm:mt-4 sm:p-5">
             <p key={`desc-${currentIndex}`} className="text-xs leading-relaxed text-white/90 animate-in fade-in duration-500 sm:text-sm md:text-[15px]">
-              {activeContent.description}
+              {activeContent?.description || 'Descripción por defecto'}
             </p>
           </div>
           <div className="mt-4 sm:mt-6">
             <a
               className="group relative inline-block rounded-md border border-[#009299] bg-[#009299] px-4 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-white backdrop-blur-sm transition hover:bg-[#009299]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009299] focus-visible:ring-offset-2 focus-visible:ring-offset-[#041b45] sm:px-7 sm:text-xs sm:tracking-[0.3em]"
-              href="#proyectos"
-              aria-label="Ver casos de éxito"
+              href={activeButton.href}
+              aria-label={activeButton.text}
             >
-              {t.hero.cta}
+              {activeButton.text}
             </a>
           </div>
         </div>
