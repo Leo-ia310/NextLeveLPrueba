@@ -46,7 +46,7 @@ const translations = {
       title: 'Insights y Tendencias',
       description: 'Mantente actualizado con noticias reales, análisis profundos y estrategias basadas en datos.',
       noPosts: 'No hay posts en esta categoría todavía',
-      introVideoUrl: 'https://www.youtube.com/watch?v=wwSXz0JJje8', // Cambiado a URL completo en lugar de ID
+      introVideoUrl: 'https://youtu.be/wwSXz0JJje8?si=llt6h2kl9qnK3pIe', // Cambiado a URL completo en lugar de ID
       readMore: 'Leer más',
       categories: [
         { label: 'Todos', value: 'todos' as Category },

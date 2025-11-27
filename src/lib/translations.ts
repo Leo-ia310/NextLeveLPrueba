@@ -4,25 +4,25 @@ export const translations = {
   es: {
     // Header/Nav
     nav: {
-      home: 'HOME',
+      home: 'INICIO',
       about: 'NOSOTROS',
       services: 'SERVICIOS',
       projects: 'CASOS DE ÉXITO',
       contact: 'CONTACTO',
       Blog: 'BLOG',
-      quote: 'CONSULTORÍA',
+      quote: 'CONSULTA GRATUITA',
     },
       
     // Hero
     hero: {
       badge: 'Next Level · BUSINESS CONSULTING',
-      title: 'Consultoria de Negocios',
+      title: 'Desarrollo de negocios, Contabilidad, Marketing y Ventas',
       slide1: {
-        category: 'MARKETING ESTRATÉGICO - CRECIMIENTO Y POSICIONAMIENTO',
+        category: 'MARKETING DIGITAL - CRECIMIENTO Y POSICIONAMIENTO',
         description: 'Impulsamos tu negocio con estrategias de marketing innovadoras y efectivas.',
       },
       slide2: {
-        category: 'ASESORÍA FINANCIERA',
+        category: 'PLANIFICACIÓN EMPRESARIAL, REPARACIÓN DE CRÉDITO, FLUJO DE CAJA',
         description: 'Optimizamos tus finanzas para maximizar rentabilidad y crecimiento sostenible.',
       },
       slide3: {
@@ -34,7 +34,7 @@ export const translations = {
         description: 'Mejoramos la eficiencia de tus procesos para optimizar recursos y tiempo.',
       },
       slide5: {
-        category: 'TECNOLOGÍA Y TRANSFORMACIÓN',
+        category: 'AUTOMATIZACIÓN, CRM, COMERCIO ELECTRÓNICO',
         description: 'Implementamos soluciones tecnológicas que impulsan la innovación y competitividad de tu empresa.',
       },
       slide6: {
@@ -145,7 +145,7 @@ export const translations = {
       general: [
         {
           question: '¿Qué servicios ofrece Next Level Business Consulting?',
-          answer: 'Ofrecemos servicios especializados en tres áreas principales: Marketing (estrategias digitales, posicionamiento de marca, campañas publicitarias), Finanzas (planificación financiera, análisis de inversiones, optimización de recursos) y Contabilidad (gestión contable, declaraciones fiscales, auditorías).',
+          answer: 'Gestión de operaciones, Finanzas, Contabilidad, Tecnología, Estrategia, Marketing, Desarrollo web.',
         },
         {
           question: '¿Cómo puedo contratar sus servicios?',
@@ -161,7 +161,7 @@ export const translations = {
         },
         {
           question: '¿Ofrecen planes personalizados?',
-          answer: 'Absolutamente. Todos nuestros servicios son personalizados según las necesidades, objetivos y presupuesto de cada cliente. No trabajamos con paquetes estándar, sino que diseñamos soluciones a medida.',
+          answer: 'Absolutamente. Todos nuestros servicios son personalizados según las necesidades, objetivos y presupuesto de cada cliente.',
         },
       ],
       marketing: [
@@ -314,8 +314,8 @@ export const translations = {
       badge: 'CONTACTO',
       title: 'Hablemos de tu',
       titleAccent: 'negocio',
-      preferDirect: '¿Preferís escribirnos directo?',
-      whatsappPrompt: 'Abrí el chat de WhatsApp y charlamos ahora mismo.',
+      preferDirect: '¿Prefieres escribirnos directo?',
+      whatsappPrompt: 'Abre el chat de WhatsApp y charlamos ahora mismo.',
       openChat: 'Abrir chat ahora',
       features: [
         { title: 'Atención personalizada', description: 'Un consultor te responde.' },
@@ -340,7 +340,7 @@ export const translations = {
           marketing: 'Marketing',
           finance: 'Finanzas',
           accounting: 'Contabilidad',
-          operations: 'Gestion de Operaciones',
+          operations: 'Gestión de Operaciones',
           technology: 'Tecnologia',
           strategy: 'Estrategia',
           webDevelopment: 'Desarrollo Web y SEO'
@@ -370,18 +370,18 @@ export const translations = {
       projects: 'SUCCESS CASES',
       contact: 'CONTACT',
       Blog: 'BLOG',
-      quote: 'CONSULTING',
+      quote: 'FREE CONSULTATION',
     },
     // Hero
     hero: {
       badge: 'Next Level · BUSINESS CONSULTING',
-      title: 'Business Consulting',
+      title: 'Business Development, Bookkeeping, Marketing & Sales',
       slide1: {
-        category: 'STRATEGIC MARKETING - GROWTH AND POSITIONING',
+        category: 'DIGITAL MARKETING, LEAD GENERATION, MARKETING STRATEGY',
         description: 'We boost your business with innovative and effective marketing strategies.',
       },
       slide2: {
-        category: 'COMPREHENSIVE FINANCIAL ADVISORY',
+        category: 'BUSINESS PLANNING, CREDIT REPAIR, CASH FLOW',
         description: 'We optimize your finances to maximize profitability and sustainable growth.',
       },
       slide3: {
@@ -393,7 +393,7 @@ export const translations = {
         description: 'We improve the efficiency of your processes to optimize resources and time.',
       },
       slide5: {
-        category: 'TECHNOLOGY & TRANSFORMATION',
+        category: 'AUTOMATION, CRM, E-COMMERCE',
         description: 'We implement technological solutions that drive innovation and competitiveness for your company.',
       },
       slide6: {
@@ -673,8 +673,8 @@ export const translations = {
       badge: 'CONTACT',
       title: 'Let\'s talk about your',
       titleAccent: 'business',
-      preferDirect: 'Prefer to write us directly?',
-      whatsappPrompt: 'Open the WhatsApp chat and let\'s talk right now.',
+      preferDirect: 'Would you prefer to write to us directly?',
+      whatsappPrompt: 'Abre el chat de WhatsApp y charlamos ahora mismo.',
       openChat: 'Open chat now',
       features: [
         { title: 'Personalized attention', description: 'A consultant responds to you.' },

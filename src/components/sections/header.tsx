@@ -18,8 +18,6 @@ export default function Header() {
   const navItems = [
     { name: t.nav.home, href: '/', active: true },
     { name: t.nav.about, href: '/#nosotros', active: false },
-    { name: t.nav.contact, href: '/#contacto', active: false },
-    { name: t.nav.Blog, href: '/services/blog', active: false },
   ];
 
   const serviceItems = [
@@ -27,7 +25,7 @@ export default function Header() {
     { name: language === 'es' ? 'Finanzas' : 'Finance', href: '/services/finance' },
     { name: language === 'es' ? 'Contabilidad' : 'Accounting', href: '/services/accounting' },
     { name: language === 'es' ? 'Tecnológias' : 'Technologies', href: '/services/technology' },
-    { name: language === 'es' ? 'Estratégias' : 'Strategies', href: '/services/strategy' },
+    { name: language === 'es' ? 'Estratégia' : 'Strategies', href: '/services/strategy' },
     { name: language === 'es' ? 'Marketing' : 'Marketing', href: '/services/marketing' },
     { name: language === 'es' ? 'Desarrollo Web' : 'Web Development', href: '/services/webDevelopment' },
   ];
@@ -69,27 +67,27 @@ export default function Header() {
   }, []);
 
   return (
-  <header className={`fixed inset-x-0 top-0 z-50 transition-colors ${isScrolled ? 'bg-[#041b45]' : 'bg-transparent'}`}>
-    <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:h-20 md:px-6" aria-label="Navegación principal">
-      <Link href="/" className="flex min-w-0 items-center gap-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009299] focus-visible:ring-offset-2 focus-visible:ring-offset-[#041b45] rounded" aria-label="Ir a la página de inicio de Next Level Business Consulting">
-        <div className="relative h-14 w-14 flex-shrink-0"> 
-          <Image
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Propiedades_del_Logo__3_-imagenes-1-removebg-preview-1762783899440.png"
-            alt="Next Level Business Consulting Logo"
-            fill
-            className="object-contain"
-            sizes="56px" 
-            priority
-          />
-        </div>
-        <div className="flex flex-col leading-none">
-          <span className="text-[18px] font-bold uppercase tracking-[0.22em] text-white" style={{ fontFamily: 'Arial, sans-serif' }}>
-            NEXT LEVEL
-          </span>
-          <span className="text-[12px] font-normal uppercase tracking-[0.22em] text-[#009299]" style={{ fontFamily: 'Arial, sans-serif' }}>
-            BUSINESS CONSULTING
-          </span>
-        </div>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-colors ${isScrolled ? 'bg-[#041b45]' : 'bg-transparent'}`}>
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:h-20 md:px-6" aria-label="Navegación principal">
+        <Link href="/" className="flex min-w-0 items-center gap-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009299] focus-visible:ring-offset-2 focus-visible:ring-offset-[#041b45] rounded" aria-label="Ir a la página de inicio de Next Level Business Consulting">
+          <div className="relative h-14 w-14 flex-shrink-0"> 
+            <Image
+              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Propiedades_del_Logo__3_-imagenes-1-removebg-preview-1762783899440.png"
+              alt="Next Level Business Consulting Logo"
+              fill
+              className="object-contain"
+              sizes="56px" 
+              priority
+            />
+          </div>
+          <div className="flex flex-col leading-none">
+            <span className="text-[18px] font-bold uppercase tracking-[0.22em] text-white" style={{ fontFamily: 'Arial, sans-serif' }}>
+              NEXT LEVEL
+            </span>
+            <span className="text-[12px] font-normal uppercase tracking-[0.22em] text-[#009299]" style={{ fontFamily: 'Arial, sans-serif' }}>
+              BUSINESS CONSULTING
+            </span>
+          </div>
         </Link>
         <div className="hidden lg:flex lg:flex-1 lg:justify-center">
           <ul className="flex items-center gap-8" role="list">
@@ -136,6 +134,22 @@ export default function Header() {
                   </ul>
                 </div>
               )}
+            </li>
+            <li>
+              <Link
+                href="/services/blog"
+                className="px-2 py-1 text-[12px] font-medium uppercase tracking-[0.28em] text-white/85 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009299] focus-visible:ring-offset-2 focus-visible:ring-offset-[#041b45] rounded"
+              >
+                {t.nav.Blog}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/#contacto"
+                className="px-2 py-1 text-[12px] font-medium uppercase tracking-[0.28em] text-white/85 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009299] focus-visible:ring-offset-2 focus-visible:ring-offset-[#041b45] rounded"
+              >
+                {t.nav.contact}
+              </Link>
             </li>
           </ul>
         </div>
@@ -212,6 +226,24 @@ export default function Header() {
                 </li>
               ))}
             </ul>
+          </li>
+          <li>
+            <Link
+              href="/services/blog"
+              className="block rounded px-2 py-2 text-sm uppercase tracking-[0.22em] text-white/90 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009299] focus-visible:ring-inset"
+              onClick={() => setMenuOpen(false)}
+            >
+              {t.nav.Blog}
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/#contacto"
+              className="block rounded px-2 py-2 text-sm uppercase tracking-[0.22em] text-white/90 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009299] focus-visible:ring-inset"
+              onClick={() => setMenuOpen(false)}
+            >
+              {t.nav.contact}
+            </Link>
           </li>
           <li className="pt-1">
             <Link

@@ -81,7 +81,7 @@ const serviceData = {
       title: 'Consultoría',
       subtitle: 'Tecnológica',
       category: 'TECNOLOGÍA Y TRANSFORMACIÓN',
-      description: 'Implementamos soluciones tecnológicas que transforman tu negocio, desde automatización hasta digitalización de procesos.',
+      description: 'Nuestro servicios inlcuyen ',
     },
     en: {
       title: 'Technology',
@@ -97,13 +97,13 @@ const serviceData = {
       title: 'Consultoría',
       subtitle: 'Estratégica',
       category: 'ESTRATEGIA EMPRESARIAL',
-      description: 'Desarrollamos estrategias empresariales claras y accionables que conectan tu visión con resultados medibles y sostenibles.',
+      description: 'Es el plan integral que define cómo tu empresa alcanzará sus objetivos a largo plazo. Incluye las decisiones clave sobre qué productos o servicios ofrecer, a qué mercado dirigirse, cómo diferenciarse de la competencia y cómo utilizar los recursos de manera eficiente. Una buena estrategia empresarial guía todas las acciones, alineando operaciones, marketing, finanzas y talento para lograr crecimiento sostenido y ventaja competitiva.',
     },
     en: {
       title: 'Strategy',
       subtitle: 'Consulting',
       category: 'BUSINESS STRATEGY',
-      description: 'We develop clear and actionable business strategies that connect your vision with measurable and sustainable results.',
+      description: 'Its the comprehensive plan that defines how your company will achieve its long-term goals. It includes key decisions about what products or services to offer, which market to target, how to differentiate yourself from the competition, and how to use resources efficiently. A good business strategy guides all actions, aligning operations, marketing, finance, and talent to achieve sustained growth and a competitive advantage.',
     },
   },
   webDevelopment: {

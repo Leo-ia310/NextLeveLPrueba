@@ -908,7 +908,6 @@ const detailsData = {
               'Plan de crecimiento detallado',
               'Análisis competitivo',
               'Sesiones estratégicas quincenales',
-              'Dashboard ejecutivo',
               'Facilitación de decisiones',
             ],
             icon: Castle,
@@ -916,13 +915,13 @@ const detailsData = {
           },
           {
             name: 'Reina',
-            price: '$3,499',
+            price: '$2,499',
             period: '/mes',
             description: 'Solución para líderes empresariales',
             features: [
               'CEO Advisory dedicado',
               'Estrategia empresarial integral',
-              'M&A y evaluación de inversiones',
+              'Evaluación de inversiones',
               'Transformación organizacional',
               'Board advisory',
               'Planificación de sucesión',
