@@ -18,11 +18,11 @@ export const translations = {
       badge: 'Next Level · BUSINESS CONSULTING',
       title: 'Desarrollo de negocios, Contabilidad, Marketing y Ventas',
       slide1: {
-        category: 'MARKETING DIGITAL - CRECIMIENTO Y POSICIONAMIENTO',
+        category: 'MARKETING: MARKETING DIGITAL - CRECIMIENTO Y POSICIONAMIENTO',
         description: 'Impulsamos tu negocio con estrategias de marketing innovadoras y efectivas.',
       },
       slide2: {
-        category: 'PLANIFICACIÓN EMPRESARIAL, REPARACIÓN DE CRÉDITO, FLUJO DE CAJA',
+        category: 'FINANZAS: PLANIFICACIÓN EMPRESARIAL, REPARACIÓN DE CRÉDITO, FLUJO DE CAJA',
         description: 'Optimizamos tus finanzas para maximizar rentabilidad y crecimiento sostenible.',
       },
       slide3: {
@@ -34,7 +34,7 @@ export const translations = {
         description: 'Mejoramos la eficiencia de tus procesos para optimizar recursos y tiempo.',
       },
       slide5: {
-        category: 'AUTOMATIZACIÓN, CRM, COMERCIO ELECTRÓNICO',
+        category: 'TECNOLOGIA: AUTOMATIZACIÓN, CRM, COMERCIO ELECTRÓNICO',
         description: 'Implementamos soluciones tecnológicas que impulsan la innovación y competitividad de tu empresa.',
       },
       slide6: {
@@ -329,8 +329,8 @@ export const translations = {
         Phone: 'Telefono',
         email: 'Email (opcional)',
         location: '¿En qué sector está tu empresa?',
-        message: 'Contanos cómo podemos ayudarte:',
-        reserveTitle: 'Reservá una reunión (opcional)',
+        message: 'Cuentanos cómo podemos ayudarte:',
+        reserveTitle: 'Reserva una reunión (opcional)',
         preferredDate: 'Fecha preferida',
         preferredTime: 'Hora preferida',
         scheduleNote: 'Horarios disponibles: Lunes a Viernes de 9:00 a 18:00 hs',
@@ -354,7 +354,7 @@ export const translations = {
     footer: {
       tagline: 'Consultoría empresarial especializada en marketing, finanzas y contabilidad con foco en resultados y crecimiento sostenible.',
       navigation: 'NAVEGACIÓN',
-      navItems: ['Home', 'Nosotros', 'Servicios', 'Casos de Éxito', 'Contacto'],
+      navItems: ['Home', 'Nosotros', 'Servicios', 'Casos de Éxito', 'Contacto', 'Blog'],
       contactTitle: 'CONTACTO',
       socialTitle: 'REDES',
       copyright: '© 2025 Next Level Business Consulting. Todos los derechos reservados',
@@ -377,11 +377,11 @@ export const translations = {
       badge: 'Next Level · BUSINESS CONSULTING',
       title: 'Business Development, Bookkeeping, Marketing & Sales',
       slide1: {
-        category: 'DIGITAL MARKETING, LEAD GENERATION, MARKETING STRATEGY',
+        category: 'MARKETING: DIGITAL MARKETING, LEAD GENERATION, MARKETING STRATEGY',
         description: 'We boost your business with innovative and effective marketing strategies.',
       },
       slide2: {
-        category: 'BUSINESS PLANNING, CREDIT REPAIR, CASH FLOW',
+        category: 'FINANCE: BUSINESS PLANNING, CREDIT REPAIR, CASH FLOW',
         description: 'We optimize your finances to maximize profitability and sustainable growth.',
       },
       slide3: {
@@ -393,7 +393,7 @@ export const translations = {
         description: 'We improve the efficiency of your processes to optimize resources and time.',
       },
       slide5: {
-        category: 'AUTOMATION, CRM, E-COMMERCE',
+        category: 'TECHNOLOGY: AUTOMATION, CRM, E-COMMERCE',
         description: 'We implement technological solutions that drive innovation and competitiveness for your company.',
       },
       slide6: {

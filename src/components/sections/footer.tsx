@@ -16,6 +16,8 @@ const Footer = () => {
     { label: t.footer.navItems[1], href: '/#nosotros' },
     { label: t.footer.navItems[2], href: '/#servicios' },
     { label: t.footer.navItems[4], href: '/#contacto' },
+    { label: t.footer.navItems[5], href: '/services/blog' },
+    
   ];
 
   // Enlaces dinámicos por idioma

@@ -524,7 +524,7 @@ const detailsData = {
         title: 'Nuestra Metodología',
         steps: [
           'Diagnóstico de procesos actuales',
-          'Identificación de oportunidades de mejora',
+          'Identificación de oportunidades de mejoras',
           'Diseño de sistemas operativos eficientes',
           'Implementación de mejoras',
           'Monitoreo y optimización continua',
@@ -533,7 +533,7 @@ const detailsData = {
       benefits: {
         title: 'Beneficios',
         items: [
-          'Aumento de productividad del 30-50%',
+          'Aumento de la productividad',
           'Reducción de costos operativos',
           'Mejora en calidad y consistencia',
           'Procesos escalables y documentados',
@@ -555,7 +555,7 @@ const detailsData = {
         items: [
           {
             name: 'Alfil',
-            price: '$399',
+            price: '$499',
             period: '/mes',
             description: 'Ideal para pequeñas operaciones',
             features: [
@@ -576,7 +576,6 @@ const detailsData = {
               'Optimización de múltiples procesos',
               'Implementación de KPIs',
               'Capacitación de equipos',
-              'Dashboard operativo',
               'Soporte semanal',
             ],
             icon: Castle,
@@ -594,7 +593,6 @@ const detailsData = {
               'Sistema de gestión integrado',
               'Optimización continua',
               'Análisis predictivo',
-              'Soporte 24/7',
             ],
             icon: Crown,
           },

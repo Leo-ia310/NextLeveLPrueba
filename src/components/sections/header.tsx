@@ -24,8 +24,8 @@ export default function Header() {
     { name: language === 'es' ? 'Gestión de Operaciones' : 'Operations Management', href: '/services/operations' },
     { name: language === 'es' ? 'Finanzas' : 'Finance', href: '/services/finance' },
     { name: language === 'es' ? 'Contabilidad' : 'Accounting', href: '/services/accounting' },
-    { name: language === 'es' ? 'Tecnológias' : 'Technologies', href: '/services/technology' },
-    { name: language === 'es' ? 'Estratégia' : 'Strategies', href: '/services/strategy' },
+    { name: language === 'es' ? 'Tecnología' : 'Technologies', href: '/services/technology' },
+    { name: language === 'es' ? 'Estrategia' : 'Strategies', href: '/services/strategy' },
     { name: language === 'es' ? 'Marketing' : 'Marketing', href: '/services/marketing' },
     { name: language === 'es' ? 'Desarrollo Web' : 'Web Development', href: '/services/webDevelopment' },
   ];
@@ -84,7 +84,7 @@ export default function Header() {
             <span className="text-[18px] font-bold uppercase tracking-[0.22em] text-white" style={{ fontFamily: 'Arial, sans-serif' }}>
               NEXT LEVEL
             </span>
-            <span className="text-[12px] font-normal uppercase tracking-[0.22em] text-[#009299]" style={{ fontFamily: 'Arial, sans-serif' }}>
+            <span className="mt-1 text-[12px] font-normal uppercase tracking-[0.22em] text-[#009299]" style={{ fontFamily: 'Arial, sans-serif' }}>
               BUSINESS CONSULTING
             </span>
           </div>
