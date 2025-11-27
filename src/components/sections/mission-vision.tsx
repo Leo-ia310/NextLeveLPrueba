@@ -1,6 +1,6 @@
 "use client";
 
-import { Target, Eye } from 'lucide-react';
+import { Target, Eye, Heart } from 'lucide-react'; // Heart para valores
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useLanguage } from '@/contexts/language-context';
 import { translations } from '@/lib/translations';
@@ -58,6 +58,24 @@ const MissionVisionSection = () => {
                 <p className="text-[15px] leading-relaxed text-white/85 lg:text-base">
                   {t.missionVision.mission.description}
                 </p>
+                {/* Título Valores */}
+                <div className="mt-8 mb-4 flex items-center gap-3">
+                  <div className="rounded-full bg-[#009299]/20 p-3">
+                    <Heart className="h-6 w-6 text-[#009299]" aria-hidden="true" />
+                  </div>
+                  <h2 className="text-2xl font-bold lg:text-3xl">
+                    {t.missionVision.valuesTitle}
+                  </h2>
+                </div>
+                <div className="mb-4 h-[2px] w-20 bg-[#009299]" aria-hidden="true"></div>
+                {/* Lista normal vertical con viñetas */}
+                <ul className="mt-4 space-y-2 text-[15px] leading-relaxed text-white/85 lg:text-base">
+                  {t.missionVision.mission.values.map((value, index) => (
+                    <li key={index} className="list-disc list-inside hover:text-[#009299] transition-colors">
+                      {value}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
@@ -79,6 +97,24 @@ const MissionVisionSection = () => {
                 <p className="text-[15px] leading-relaxed text-white/85 lg:text-base">
                   {t.missionVision.vision.description}
                 </p>
+                {/* Título Valores */}
+                <div className="mt-8 mb-4 flex items-center gap-3">
+                  <div className="rounded-full bg-[#009299]/20 p-3">
+                    <Heart className="h-6 w-6 text-[#009299]" aria-hidden="true" />
+                  </div>
+                  <h2 className="text-2xl font-bold lg:text-3xl">
+                    {t.missionVision.valuesTitle}
+                  </h2>
+                </div>
+                <div className="mb-4 h-[2px] w-20 bg-[#009299]" aria-hidden="true"></div>
+                {/* Lista normal vertical con viñetas */}
+                <ul className="mt-4 space-y-2 text-[15px] leading-relaxed text-white/85 lg:text-base">
+                  {t.missionVision.vision.values.map((value, index) => (
+                    <li key={index} className="list-disc list-inside hover:text-[#009299] transition-colors">
+                      {value}
+                    </li>
+                  ))}
+                </ul>
               </div>
               
               {/* Image - Right side on desktop */}

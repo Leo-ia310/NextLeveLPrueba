@@ -26,7 +26,7 @@ export const translations = {
         description: 'Optimizamos tus finanzas para maximizar rentabilidad y crecimiento sostenible.',
       },
       slide3: {
-        category: 'CONTABILIDAD Y GESTIÓN EMPRESARIAL',
+        category: 'CONTABILIDAD e IMPUESTOS',
         description: 'Mantenemos tus cuentas en orden para que te enfoques en hacer crecer tu negocio.',
       },
         slide4: {
@@ -58,19 +58,30 @@ export const translations = {
       badge: 'NUESTRA ESENCIA',
       mission: {
         title: 'Misión',
-        description: 'Reducir la brecha entre estrategia y resultados para emprendedores y pequeñas empresas de Colorado, especialmente dentro de la comunidad latina, a través de consultoría bilingüe accionable. Co-diseñamos planes claros, implementamos sistemas operativos y de entrada al mercado que funcionan (marketing, ventas y procesos), y transferimos capacidades a los equipos de clientes para que el crecimiento sea sostenible, medible y propio. Nuestro compromiso: claridad estratégica, ejecución disciplinada y decisiones basadas en datos, con reportes transparentes y enfoque en impacto real (más oportunidades, márgenes más saludables y relaciones a largo plazo).',
+        description: 'Impulsar el crecimiento estratégico de pequeñas y medianas empresas mediante asesoría experta, soluciones prácticas y un acompañamiento profesional que permita a cada negocio avanzar con estructura, propósito y visión.',
+      values: [
+      'Excelencia',
+      'Integridad',
+      'Diversidad'
+    ],
       },
       vision: {
         title: 'Visión',
-        description: 'Convertirnos en la primera llamada para negocios latinos y aliados en Colorado cuando necesiten crecimiento metódico: una firma reconocida por convertir conocimientos en resultados tangibles, por excelencia operacional y por elevar la competitividad de la región. Aspiramos a construir una red de conocimiento y colaboración que acelere el desarrollo empresarial local y ser una referencia en EE.UU. por nuestra capacidad de escalar marcas, profesionalizar equipos y multiplicar el impacto económico de la comunidad latina.',
+        description: 'Ser la consultora líder en Estados Unidos para pequeñas y medianas empresas, impulsando especialmente el crecimiento de la comunidad latina a través de estrategias innovadoras, un equipo multicultural y un acompañamiento profesional que transforme negocios en organizaciones sólidas, competitivas y visionarias.',
+      values: [
+      'Excelencia',
+      'Integridad',
+      'Diversidad'
+    ],
       },
+      valuesTitle: 'Valores',
     },
     // About
     about: {
       badge: 'Nosotros',
       title: 'Sobre',
       titleAccent: 'Nosotros',
-      description: 'Next Level Business Consulting es una consultora especializada en marketing, finanzas y contabilidad. Con años de experiencia en el mercado, brindamos soluciones integrales para empresas que buscan crecer y optimizar sus operaciones. Nuestro equipo de expertos trabaja de la mano con nuestros clientes para desarrollar estrategias personalizadas que generen resultados medibles y sostenibles en el tiempo.',
+      description: 'Next Level Business Consulting LLC fue fundada por Didier Alemán, CEO y migrante nicaragüense con más de 25 años de experiencia internacional en el sector privado y público. Su misión es impulsar el crecimiento de la comunidad latina en Estados Unidos mediante soluciones estratégicas y efectivas. Con sede en Colorado y clientes en todo el país, ofrecemos acompañamiento en español e inglés, enfocado especialmente en pequeñas y medianas empresas. Nuestro equipo está formado por profesionales de diferentes sectores que garantiza un asesoría integral. En Next Level ayudamos a que los negocios crezcan con propósito, estructura y visión.',
       stats: {
         years: {
           label: 'Clientes',
@@ -237,6 +248,60 @@ export const translations = {
           answer: 'Dependiendo de la complejidad, un sitio web puede tardar entre 1 y 4 semanas. Proyectos más avanzados, como sistemas personalizados, pueden tomar más tiempo. Trabajamos con un cronograma claro desde el inicio.',
         },
       ],
+          operations: [
+        {
+          "question": "¿Qué incluye el servicio de gestión de operaciones?",
+          "answer": "Incluye análisis y optimización de procesos operativos, mejora de la eficiencia productiva, gestión de la cadena de suministro, implementación de sistemas de control de calidad y capacitación del personal para maximizar el rendimiento."
+        },
+        {
+          "question": "¿Cómo optimizan los procesos operativos?",
+          "answer": "Realizamos un diagnóstico inicial, identificamos cuellos de botella, implementamos mejores prácticas (como Lean o Six Sigma), automatizamos tareas repetitivas y monitoreamos KPIs para asegurar mejoras continuas."
+        },
+        {
+          "question": "¿Trabajan con empresas en sectores específicos?",
+          "answer": "Sí, tenemos experiencia en todos los sectores (Manofactura, Servicios, Salud, Retail, Finanzas). Adaptamos nuestras estrategias a las particularidades de cada industria."
+        },
+        {
+          "question": "¿Ofrecen capacitación al personal?",
+          "answer": "Absolutamente. Proporcionamos sesiones de capacitación personalizadas para tu equipo, enfocadas en habilidades operativas, uso de herramientas y mejores prácticas para mantener la eficiencia a largo plazo."
+        }
+      ],
+        technology: [
+        {
+          "question": "¿Qué servicios tecnológicos ofrecen?",
+          "answer": "Ofrecemos consultoría en transformación digital, implementación de software empresarial, integración de sistemas, ciberseguridad, soporte técnico y desarrollo de soluciones personalizadas."
+        },
+        {
+          "question": "¿Ayudan con la implementación de software?",
+          "answer": "Sí, te asistimos en la selección, instalación y configuración de software adecuado a tus necesidades, incluyendo migración de datos, capacitación de usuarios y soporte post-implementación."
+        },
+        {
+          "question": "¿Ofrecen soporte técnico continuo?",
+          "answer": "Sí, proporcionamos soporte técnico mensual o bajo demanda, que incluye monitoreo de sistemas, resolución de incidencias, actualizaciones y mantenimiento preventivo para asegurar el funcionamiento óptimo."
+        },
+        {
+          "question": "¿Cómo aseguran la seguridad de los datos?",
+          "answer": "Implementamos protocolos de ciberseguridad avanzados, como encriptación, firewalls, auditorías regulares y planes de respuesta a incidentes, además de capacitar a tu equipo en mejores prácticas de seguridad."
+        }
+      ],
+        strategy: [
+        {
+          "question": "¿Qué incluye el servicio de estrategia empresarial?",
+          "answer": "Incluye análisis de mercado, definición de objetivos estratégicos, desarrollo de planes de crecimiento, evaluación de riesgos, alineación organizacional y monitoreo de indicadores estratégicos."
+        },
+        {
+          "question": "¿Cómo desarrollan un plan estratégico?",
+          "answer": "Comenzamos con un análisis interno y externo (SWOT, PESTEL), definimos visión y misión, identificamos oportunidades, priorizamos iniciativas y creamos un roadmap con métricas claras para el seguimiento."
+        },
+        {
+          "question": "¿Ayudan con la expansión de mercados?",
+          "answer": "Sí, te asesoramos en estrategias de expansión, incluyendo entrada a nuevos mercados, alianzas estratégicas, análisis de competencia y planes de marketing para apoyar el crecimiento internacional o nacional."
+        },
+        {
+          "question": "¿Ofrecen consultoría para cambios organizacionales?",
+          "answer": "Sí, facilitamos procesos de cambio, como reestructuraciones, fusiones o adopción de nuevas culturas, mediante planes de comunicación, capacitación y gestión de resistencia al cambio."
+        }
+      ]
     },
     // Testimonials
     testimonials: {
@@ -327,10 +392,10 @@ export const translations = {
         firstName: 'Nombre',
         lastName: 'Apellido',
         Phone: 'Telefono',
-        email: 'Email (opcional)',
+        email: 'Email',
         location: '¿En qué sector está tu empresa?',
         message: 'Cuentanos cómo podemos ayudarte:',
-        reserveTitle: 'Reserva una reunión (opcional)',
+        reserveTitle: 'Reserva una reunión',
         preferredDate: 'Fecha preferida',
         preferredTime: 'Hora preferida',
         scheduleNote: 'Horarios disponibles: Lunes a Viernes de 9:00 a 18:00 hs',
@@ -385,7 +450,7 @@ export const translations = {
         description: 'We optimize your finances to maximize profitability and sustainable growth.',
       },
       slide3: {
-        category: 'ACCOUNTING AND BUSINESS MANAGEMENT',
+        category: 'BOOKKEEPING AND TAXES',
         description: 'We keep your accounts in order so you can focus on growing your business.',
       },
             slide4: {
@@ -418,19 +483,31 @@ export const translations = {
       badge: 'OUR ESSENCE',
       mission: {
         title: 'Mission',
-        description: 'Bridge the gap between strategy and outcomes for Colorado entrepreneurs and small businesses especially within the Latino community through actionable, bilingual consulting. We co-design clear plans, implement go-to-market and operational systems that work (marketing, sales, and processes), and transfer capabilities to client teams so growth is sustainable, measurable, and owned. Our commitment: strategic clarity, disciplined execution, and data-driven decisions, with transparent reporting and a focus on real impact (more opportunities, healthier margins, and long-term relationships).',
+        description: 'To drive the strategic growth of small and medium-sized enterprises through expert advice, practical solutions and professional support that allows each business to move forward with structure, purpose and vision.',
+        values: [
+      'Excellence',
+      'Integrity',
+      'Diversity'
+    ],
       },
+
       vision: {
         title: 'Vision',
-        description: 'Become the first call for Latino and allied businesses in Colorado when they need methodical growth: a firm recognized for turning insights into tangible results, for operational excellence, and for elevating the region\'s competitiveness. We aim to build a knowledge and collaboration network that accelerates local business development and to be a U.S. reference for our ability to scale brands, professionalize teams, and multiply the Latino community\'s economic impact.',
+        description: 'To be the leading consulting firm in the United States for small and medium-sized businesses, especially promoting the growth of the Latino community through innovative strategies, a multicultural team and professional support that transforms businesses into solid, competitive and visionary organizations.',
+          values: [
+      'Excellence',
+      'Integrity',
+      'Diversity'
+    ],
       },
+      valuesTitle: 'Values',
     },
     // About
     about: {
       badge: 'About Us',
       title: 'About',
       titleAccent: 'Us',
-      description: 'Next Level Business Consulting is a consulting firm specialized in marketing, finance and accounting. With years of experience in the market, we provide comprehensive solutions for companies looking to grow and optimize their operations. Our team of experts works hand in hand with our clients to develop personalized strategies that generate measurable and sustainable results over time.',
+      description: 'Next Level Business Consulting LLC was founded by Didier Alemán, CEO and Nicaraguan immigrant with over 25 years of international experience in the private and public sectors. Its mission is to drive the growth of the Latino community in the United States through strategic and effective solutions. Headquartered in Colorado and serving clients nationwide, we offer support in both Spanish and English, with a focus on small and medium-sized businesses. Our team comprises professionals from diverse backgrounds, ensuring comprehensive consulting services. At Next Level, we help businesses grow with purpose, structure, and vision.',
       stats: {
         years: {
           label: 'Clients',
@@ -595,8 +672,61 @@ export const translations = {
           question: 'How long does it take to develop a website?',
           answer: 'Depending on complexity, a website can take between 1 and 4 weeks. More advanced projects, such as custom systems, may take longer. We work with a clear timeline from the start.',
         },
+      ],
+          operations: [
+        {
+          "question": "What does the operations management service include?",
+          "answer": "It includes analysis and optimization of operational processes, improvement of productive efficiency, supply chain management, implementation of quality control systems, and staff training to maximize performance."
+        },
+        {
+          "question": "How do you optimize operational processes?",
+          "answer": "We conduct an initial diagnosis, identify bottlenecks, implement best practices (such as Lean or Six Sigma), automate repetitive tasks, and monitor KPIs to ensure continuous improvements."
+        },
+        {
+          "question": "Do you work with companies in specific sectors?",
+          "answer": "Yes, we have experience in various sectors such as manufacturing, retail, services, technology, and more. We adapt our strategies to the particularities of each industry."
+        },
+        {
+          "question": "Do you offer staff training?",
+          "answer": "Absolutely. We provide personalized training sessions for your team, focused on operational skills, tool usage, and best practices to maintain long-term efficiency."
+        }
+      ],
+      technology: [
+        {
+          "question": "What technological services do you offer?",
+          "answer": "We offer consulting in digital transformation, enterprise software implementation, system integration, cybersecurity, technical support, and development of customized solutions."
+        },
+        {
+          "question": "Do you help with software implementation?",
+          "answer": "Yes, we assist you in the selection, installation, and configuration of software suitable to your needs, including data migration, user training, and post-implementation support."
+        },
+        {
+          "question": "Do you offer continuous technical support?",
+          "answer": "Yes, we provide monthly or on-demand technical support, which includes system monitoring, incident resolution, updates, and preventive maintenance to ensure optimal functioning."
+        },
+        {
+          "question": "How do you ensure data security?",
+          "answer": "We implement advanced cybersecurity protocols, such as encryption, firewalls, regular audits, and incident response plans, in addition to training your team in security best practices."
+        }
+      ],
+      strategy: [
+        {
+          "question": "What does the business strategy service include?",
+          "answer": "It includes market analysis, definition of strategic objectives, development of growth plans, risk assessment, organizational alignment, and monitoring of strategic indicators."
+        },
+        {
+          "question": "How do you develop a strategic plan?",
+          "answer": "We start with an internal and external analysis (SWOT, PESTEL), define vision and mission, identify opportunities, prioritize initiatives, and create a roadmap with clear metrics for tracking."
+        },
+        {
+          "question": "Do you help with market expansion?",
+          "answer": "Yes, we advise on expansion strategies, including entry into new markets, strategic alliances, competitive analysis, and marketing plans to support international or national growth."
+        },
+        {
+          "question": "Do you offer consulting for organizational changes?",
+          "answer": "Yes, we facilitate change processes, such as restructurings, mergers, or adoption of new cultures, through communication plans, training, and change resistance management."
+        }
       ]
-
     },
     // Testimonials
     testimonials: {
@@ -686,10 +816,10 @@ export const translations = {
         firstName: 'First Name',
         lastName: 'Last Name',
         Phone: 'Phone',
-        email: 'Email (optional)',
+        email: 'Email',
         location: 'What sector is your company in?',
         message: 'Tell us how we can help you:',
-        reserveTitle: 'Book a meeting (optional)',
+        reserveTitle: 'Book a meeting',
         preferredDate: 'Preferred date',
         preferredTime: 'Preferred time',
         scheduleNote: 'Available hours: Monday to Friday from 9:00 AM to 6:00 PM',
@@ -714,7 +844,7 @@ export const translations = {
     footer: {
       tagline: 'Business consulting specialized in marketing, finance and accounting with focus on results and sustainable growth.',
       navigation: 'NAVIGATION',
-      navItems: ['Home', 'About Us', 'Services', 'Success Cases', 'Contact'],
+      navItems: ['Home', 'About Us', 'Services', 'Success Cases', 'Contact', 'Blog'],
       contactTitle: 'CONTACT',
       socialTitle: 'SOCIAL',
       copyright: '© 2025 Next Level Business Consulting. All rights reserved',

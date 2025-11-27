@@ -32,7 +32,7 @@ const serviceData = {
     es: {
       title: 'Asesoría',
       subtitle: 'Financiera',
-      category: 'FINANZAS CORPORATIVAS',
+      category: '• PLANIFICACIÓN EMPRESARIAL • REPARACIÓN DE • FLUJO DE CAJA',
       description: 'Optimizamos tus finanzas para maximizar rentabilidad y crecimiento sostenible de tu empresa con estrategias personalizadas.',
     },
     en: {
@@ -47,13 +47,13 @@ const serviceData = {
     image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/1e59a2b4-1255-4495-a26b-2e5ea7a74660/generated_images/business-accounting-workspace-organized--1a256baa-20251030184251.jpg',
     es: {
       title: 'Contabilidad',
-      subtitle: 'Empresarial',
+      subtitle: 'e Impuestos',
       category: 'CONTABILIDAD INTEGRAL',
       description: 'Mantenemos tus cuentas en orden con transparencia total para que te enfoques en hacer crecer tu negocio sin preocupaciones.',
     },
     en: {
-      title: 'Business',
-      subtitle: 'Accounting',
+      title: 'Accounting',
+      subtitle: '& Taxes',
       category: 'COMPREHENSIVE ACCOUNTING',
       description: 'We keep your accounts in order with total transparency so you can focus on growing your business without worries.',
     },
@@ -78,16 +78,16 @@ const serviceData = {
     icon: Cpu,
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop&q=90',
     es: {
-      title: 'Consultoría',
-      subtitle: 'Tecnológica',
-      category: 'TECNOLOGÍA Y TRANSFORMACIÓN',
-      description: 'Nuestro servicios inlcuyen ',
+      title: 'Tecnología',
+      subtitle: 'para Empresas',
+      category: 'AUTOMATIZACIÓN, CRM, COMERCIO ELECTRÓNICO',
+      description: 'Nuestros servicios incluyen comercio electrónico, ERP (Planificación de recursos empresariales), CRM (Gestión de relaciones con el cliente), valuación de ROI (Retorno de inversión) ',
     },
     en: {
       title: 'Technology',
-      subtitle: 'Consulting',
-      category: 'TECHNOLOGY & TRANSFORMATION',
-      description: 'We implement technological solutions that transform your business, from automation to process digitalization.',
+      subtitle: 'for business',
+      category: 'AUTOMATION, CRM, E-COMMERCE',
+      description: 'Our services include e-commerce, ERP (Enterprise Resource Planning), CRM (Customer Relationship Management), ROI (Return on Investment) valuation',
     },
   },
   strategy: {

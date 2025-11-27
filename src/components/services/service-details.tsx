@@ -45,7 +45,7 @@ const detailsData = {
         title: 'Nuestros Paquetes',
         items: [
           {
-            name: 'Alfil',
+            name: 'Reina',
             price: '$299',
             period: '/mes',
             description: 'Ideal para emprendedores y pequeños negocios',
@@ -58,7 +58,7 @@ const detailsData = {
             icon: Shield,
           },
           {
-            name: 'Torre',
+            name: 'Rey',
             price: '$599',
             period: '/mes',
             description: 'Perfecto para empresas en crecimiento',
@@ -126,7 +126,7 @@ const detailsData = {
         title: 'Our Packages',
         items: [
           {
-            name: 'Bishop',
+            name: 'Tower',
             price: '$299',
             period: '/month',
             description: 'Ideal for entrepreneurs and small businesses',
@@ -139,7 +139,7 @@ const detailsData = {
             icon: Shield,
           },
           {
-            name: 'Rook',
+            name: 'King',
             price: '$599',
             period: '/month',
             description: 'Perfect for growing companies',
@@ -189,7 +189,7 @@ const detailsData = {
       benefits: {
         title: 'Beneficios',
         items: [
-          'Reducción de costos operativos del 15-30%',
+          'Reducción de costos operativos',
           'Optimización de flujo de caja',
           'Visión clara de oportunidades de inversión',
           'Mayor control y previsibilidad financiera',
@@ -198,11 +198,11 @@ const detailsData = {
       whatWeOffer: {
         title: 'Qué Incluye',
         items: [
-          'Planificación financiera estratégica',
+          'Finanzas estratégicas',
           'Análisis de rentabilidad y costos',
           'Presupuestos y proyecciones',
           'Gestión de flujo de caja',
-          'Asesoramiento en inversiones',
+          'Planificación Fiscal',
           'Reportes financieros ejecutivos',
         ],
       },
@@ -210,7 +210,7 @@ const detailsData = {
         title: 'Nuestros Paquetes',
         items: [
           {
-            name: 'Alfil',
+            name: 'Torre',
             price: '$499',
             period: '/mes',
             description: 'Ideal para startups y pequeñas empresas',
@@ -224,7 +224,7 @@ const detailsData = {
             icon: Shield,
           },
           {
-            name: 'Torre',
+            name: 'Rey',
             price: '$999',
             period: '/mes',
             description: 'Perfecto para empresas en expansión',
@@ -252,7 +252,6 @@ const detailsData = {
               'Due diligence financiero',
               'Optimización fiscal',
               'Reportes personalizados diarios',
-              'Soporte 24/7',
             ],
             icon: Crown,
           },
@@ -273,7 +272,7 @@ const detailsData = {
       benefits: {
         title: 'Benefits',
         items: [
-          '15-30% reduction in operating costs',
+          'reduction in operating costs',
           'Cash flow optimization',
           'Clear vision of investment opportunities',
           'Greater control and financial predictability',
@@ -282,11 +281,11 @@ const detailsData = {
       whatWeOffer: {
         title: 'What\'s Included',
         items: [
-          'Strategic financial planning',
+          'Strategic finance',
           'Profitability and cost analysis',
           'Budgets and projections',
           'Cash flow management',
-          'Investment advisory',
+          'Tax Planning',
           'Executive financial reports',
         ],
       },
@@ -294,7 +293,7 @@ const detailsData = {
         title: 'Our Packages',
         items: [
           {
-            name: 'Bishop',
+            name: 'Tower',
             price: '$499',
             period: '/month',
             description: 'Ideal for startups and small businesses',
@@ -308,7 +307,7 @@ const detailsData = {
             icon: Shield,
           },
           {
-            name: 'Rook',
+            name: 'King',
             price: '$999',
             period: '/month',
             description: 'Perfect for expanding companies',
@@ -336,7 +335,6 @@ const detailsData = {
               'Financial due diligence',
               'Tax optimization',
               'Daily custom reports',
-              '24/7 support',
             ],
             icon: Crown,
           },
@@ -359,8 +357,8 @@ const detailsData = {
       benefits: {
         title: 'Beneficios',
         items: [
-          'Cumplimiento fiscal al 100%',
-          'Reducción del tiempo administrativo en un 70%',
+          'Cumplimiento fiscal',
+          'Reducción del tiempo administrativo',
           'Transparencia total en las finanzas',
           'Evitar multas y sanciones',
         ],
@@ -381,31 +379,29 @@ const detailsData = {
         title: 'Nuestros Paquetes',
         items: [
           {
-            name: 'Alfil',
-            price: '$199',
+            name: 'Torre',
+            price: '$399',
             period: '/mes',
-            description: 'Ideal para autónomos y freelancers',
+            description: 'Ideal para freelancers',
             features: [
-              'Hasta 50 transacciones/mes',
-              'Facturación electrónica',
-              'Declaración de impuestos básica',
-              'Conciliación bancaria',
-              'Soporte por email',
-            ],
+            'Clasificación mensual de ingresos y gastos',
+            'Conciliación bancaria mensual',
+            'Estados mensuales de pérdidas y ganancias (P&L)',
+            'Soporte por correo electrónico',
+          ],
             icon: Shield,
           },
           {
-            name: 'Torre',
-            price: '$449',
+            name: 'Rey',
+            price: '$699',
             period: '/mes',
-            description: 'Perfecto para PYMEs',
+            description: 'Perfecto para compañias',
             features: [
-              'Hasta 200 transacciones/mes',
-              'Contabilidad completa',
-              'Liquidación de todos los impuestos',
-              'Libros contables legales',
-              'Nóminas (hasta 10 empleados)',
-              'Asesoramiento fiscal',
+              'Clasificación mensual de ingresos y gastos',
+              'Conciliación bancaria mensual',
+              'Estados mensuales de pérdidas y ganancias (P&L)',
+              'Consultoría empresarial mensual basada en las necesidades de tu negocio para impulsar el crecimiento y la optimización',
+              'Gestión de nómina para hasta 5 empleados ($5 por empleado adicional)',
               'Reporte mensual',
             ],
             icon: Castle,
@@ -417,15 +413,12 @@ const detailsData = {
             period: '/mes',
             description: 'Solución completa para empresas grandes',
             features: [
-              'Transacciones ilimitadas',
-              'Contabilidad avanzada multiempresa',
-              'Auditorías internas trimestrales',
-              'Nóminas ilimitadas',
-              'Asesoramiento fiscal estratégico',
-              'Planning fiscal',
-              'Reportes personalizados',
-              'Contador dedicado 24/7',
-            ],
+            'Clasificación mensual de ingresos y gastos',
+            'Conciliación bancaria mensual',
+            'Estados mensuales de pérdidas y ganancias (P&L)',
+            'Consultoría empresarial mensual basada en las necesidades de tu negocio para impulsar el crecimiento y la optimización',
+            'Gestión de nómina para hasta 10 empleados ($5 por empleado adicional)',
+          ],
             icon: Crown,
           },
         ],
@@ -467,31 +460,29 @@ const detailsData = {
         title: 'Our Packages',
         items: [
           {
-            name: 'Bishop',
-            price: '$199',
+            name: 'Tower',
+            price: '$399',
             period: '/month',
-            description: 'Ideal for freelancers and self-employed',
+            description: 'Ideal for freelancers',
             features: [
-              'Up to 50 transactions/month',
-              'Electronic invoicing',
-              'Basic tax return',
-              'Bank reconciliation',
+              'Monthly income and expense categorization',
+              'Monthly bank reconciliation',
+              'Monthly P&L statements',
               'Email support',
             ],
             icon: Shield,
           },
           {
-            name: 'Rook',
-            price: '$449',
+            name: 'King',
+            price: '$699',
             period: '/month',
-            description: 'Perfect for SMEs',
+            description: 'Perfect for companies',
             features: [
-              'Up to 200 transactions/month',
-              'Complete accounting',
-              'Settlement of all taxes',
-              'Legal accounting books',
-              'Payroll (up to 10 employees)',
-              'Tax advisory',
+              'Monthly income and expense categorization',
+              'Monthly bank reconciliation',
+              'Monthly P&L statements',
+              'Monthly business consultation based on your business needs to enable growth and optimization',
+              'Payroll management for up to 5 employees ($5 per employee thereafter)',
               'Monthly report',
             ],
             icon: Castle,
@@ -503,14 +494,11 @@ const detailsData = {
             period: '/month',
             description: 'Complete solution for large companies',
             features: [
-              'Unlimited transactions',
-              'Advanced multi-company accounting',
-              'Quarterly internal audits',
-              'Unlimited payroll',
-              'Strategic tax advisory',
-              'Tax planning',
-              'Custom reports',
-              'Dedicated accountant 24/7',
+              'Monthly income and expense categorization',
+              'Monthly bank reconciliation',
+              'Monthly P&L statements',
+              'Monthly business consultation based on your business needs to enable growth and optimization',
+              'Payroll management up to 10 employees ($5 per employee thereafter)',
             ],
             icon: Crown,
           },
@@ -554,8 +542,8 @@ const detailsData = {
         title: 'Nuestros Paquetes',
         items: [
           {
-            name: 'Alfil',
-            price: '$499',
+            name: 'Torre',
+            price: '$599',
             period: '/mes',
             description: 'Ideal para pequeñas operaciones',
             features: [
@@ -567,7 +555,7 @@ const detailsData = {
             icon: Shield,
           },
           {
-            name: 'Torre',
+            name: 'Rey',
             price: '$799',
             period: '/mes',
             description: 'Perfecto para operaciones en crecimiento',
@@ -634,7 +622,7 @@ const detailsData = {
         title: 'Our Packages',
         items: [
           {
-            name: 'Bishop',
+            name: 'Tower',
             price: '$399',
             period: '/month',
             description: 'Ideal for small operations',
@@ -647,7 +635,7 @@ const detailsData = {
             icon: Shield,
           },
           {
-            name: 'Rook',
+            name: 'King',
             price: '$799',
             period: '/month',
             description: 'Perfect for growing operations',
@@ -718,7 +706,7 @@ const detailsData = {
         title: 'Nuestros Paquetes',
         items: [
           {
-            name: 'Alfil',
+            name: 'Torre',
             price: '$599',
             period: '/mes',
             description: 'Ideal para digitalización básica',
@@ -731,7 +719,7 @@ const detailsData = {
             icon: Shield,
           },
           {
-            name: 'Torre',
+            name: 'Rey',
             price: '$1,199',
             period: '/mes',
             description: 'Perfecto para transformación digital',
@@ -800,7 +788,7 @@ const detailsData = {
         title: 'Our Packages',
         items: [
           {
-            name: 'Bishop',
+            name: 'Tower',
             price: '$599',
             period: '/month',
             description: 'Ideal for basic digitalization',
@@ -813,7 +801,7 @@ const detailsData = {
             icon: Shield,
           },
           {
-            name: 'Rook',
+            name: 'King',
             price: '$1,199',
             period: '/month',
             description: 'Perfect for digital transformation',
@@ -884,7 +872,7 @@ const detailsData = {
         title: 'Nuestros Paquetes',
         items: [
           {
-            name: 'Alfil',
+            name: 'Torre',
             price: '$699',
             period: '/mes',
             description: 'Ideal para startups y emprendimientos',
@@ -897,7 +885,7 @@ const detailsData = {
             icon: Shield,
           },
           {
-            name: 'Torre',
+            name: 'Rey',
             price: '$1,499',
             period: '/mes',
             description: 'Perfecto para empresas en expansión',
@@ -965,7 +953,7 @@ const detailsData = {
         title: 'Our Packages',
         items: [
           {
-            name: 'Bishop',
+            name: 'Tower',
             price: '$699',
             period: '/month',
             description: 'Ideal for startups and ventures',
@@ -978,7 +966,7 @@ const detailsData = {
             icon: Shield,
           },
           {
-            name: 'Rook',
+            name: 'King',
             price: '$1,499',
             period: '/month',
             description: 'Perfect for expanding companies',
@@ -1049,7 +1037,7 @@ const detailsData = {
       title: 'Nuestros Paquetes',
       items: [
         {
-          name: 'Alfil',
+          name: 'Torre',
           price: '$499',
           period: '/mes',
           description: 'Ideal para mantenimiento básico y SEO inicial',
@@ -1062,7 +1050,7 @@ const detailsData = {
           icon: Code, 
         },
         {
-          name: 'Torre',
+          name: 'Rey',
           price: '$999',
           period: '/mes',
           description: 'Perfecto para mejoras SEO y mantenimiento avanzado',
@@ -1130,7 +1118,7 @@ const detailsData = {
       title: 'Our Packages',
       items: [
         {
-          name: 'Bishop',
+          name: 'Tower',
           price: '$499',
           period: '/month',
           description: 'Ideal for basic maintenance and initial SEO',
@@ -1143,7 +1131,7 @@ const detailsData = {
           icon: Code, 
         },
         {
-          name: 'Rook',
+          name: 'King',
           price: '$999',
           period: '/month',
           description: 'Perfect for SEO improvements and advanced maintenance',

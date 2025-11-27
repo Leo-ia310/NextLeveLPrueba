@@ -239,6 +239,7 @@ const ContactForm = () => {
                     value={formData.nombre}
                     onChange={handleChange}
                     disabled={isSubmitting}
+                    required
                   />
                   <input
                     name="apellido"
@@ -248,6 +249,7 @@ const ContactForm = () => {
                     value={formData.apellido}
                     onChange={handleChange}
                     disabled={isSubmitting}
+                    required
                   />
                 
                 </div>
@@ -289,6 +291,7 @@ const ContactForm = () => {
                     value={formData.telefono}
                     onChange={handleChange}
                     disabled={isSubmitting}
+                    required
                   />
                   <input
                     name="email"
@@ -298,6 +301,7 @@ const ContactForm = () => {
                     value={formData.email}
                     onChange={handleChange}
                     disabled={isSubmitting}
+                    required
                   />
                 </div>
                 <div className="mt-4">
@@ -309,6 +313,7 @@ const ContactForm = () => {
                     value={formData.ubicacion}
                     onChange={handleChange}
                     disabled={isSubmitting}
+                    required
                   />
                 </div>
 
@@ -368,6 +373,7 @@ const ContactForm = () => {
                         value={formData.fecha}
                         onChange={handleChange}
                         disabled={isSubmitting}
+                        required
                       />
                     </div>
                     <div>
@@ -382,6 +388,7 @@ const ContactForm = () => {
                         value={formData.hora}
                         onChange={handleChange}
                         disabled={isSubmitting}
+                        required
                       >
                         <option value="" className="bg-[#041b45] text-neutral-400">
                           {language === 'es' ? 'Seleccionar hora' : 'Select time'}
@@ -425,6 +432,7 @@ const ContactForm = () => {
                     value={formData.mensaje}
                     onChange={handleChange}
                     disabled={isSubmitting}
+                    required
                   ></textarea>
                 </div>
 
@@ -439,8 +447,8 @@ const ContactForm = () => {
                         </p>
                         <p className="text-xs text-white/70 mt-1">
                           {language === 'es' 
-                            ? 'Tu consulta ha sido enviada por email, guardada en nuestro sistema y programada en el calendario.'
-                            : 'Your inquiry has been sent by email, saved in our system, and scheduled on the calendar.'}
+                            ? 'Tu consulta ha sido enviada por email'
+                            : 'Your inquiry has been sent by email'}
                         </p>
                       </div>
                     </div>
