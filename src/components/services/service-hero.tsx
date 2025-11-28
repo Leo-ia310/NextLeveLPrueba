@@ -15,7 +15,7 @@ const serviceData = {
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop&q=90',
     es: {
       title: 'Marketing',
-      subtitle: 'Estratégico',
+      subtitle: 'Digital ',
       category: 'MARKETING DIGITAL',
       description: 'Impulsamos tu negocio con estrategias de marketing innovadoras y efectivas que generan resultados medibles y crecimiento sostenible.',
     },
