@@ -8,6 +8,7 @@ import { translations } from '@/lib/translations';
 import { sendToGoogleSheet, SheetFormData, checkAvailabilityInSheet } from '@/lib/google-sheets';
 import { CalendarAvailability } from '@/components/ui/calendar-availability';
 
+
 interface FormData {
   nombre: string;
   apellido: string;
@@ -45,6 +46,7 @@ const ContactForm = () => {
 
   const { language } = useLanguage();
   const t = translations[language];
+
 
   // Inicializar EmailJS al montar el componente
 
@@ -305,18 +307,23 @@ const ContactForm = () => {
                   />
                 </div>
                 <div className="mt-4">
-                  <input
+                  <select
                     name="ubicacion"
-                    type="text"
-                    placeholder={t.contact.form.location}
+                    value={formData.ubicacion}  
+                    onChange={handleChange}    
                     className="w-full rounded-md border border-[#009299]/30 bg-[#041b45]/80 px-4 py-3 text-base text-white/90 ring-offset-[#041b45] placeholder:text-neutral-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009299] focus-visible:ring-offset-2"
-                    value={formData.ubicacion}
-                    onChange={handleChange}
-                    disabled={isSubmitting}
                     required
-                  />
+                  >
+                  <option value="" disabled>{t.contact.form.location}</option>
+                  {t.contact.form.locationOptions.flatMap(group => 
+                    group.options.map(option => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))
+                  )}
+                  </select>
                 </div>
-
                 {/* Services Selection */}
                 <div className="mt-6 rounded-xl border border-[#009299]/30 bg-[#009299]/10 p-5">
                   <label className="mb-3 flex items-center gap-2 text-sm font-semibold text-white">

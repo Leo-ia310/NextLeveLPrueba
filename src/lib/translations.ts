@@ -374,48 +374,201 @@ export const translations = {
 
       ],
     },
-    // Contact
-    contact: {
-      badge: 'CONTACTO',
-      title: 'Hablemos de tu',
-      titleAccent: 'negocio',
-      preferDirect: '¿Prefieres escribirnos directo?',
-      whatsappPrompt: 'Abre el chat de WhatsApp y charlamos ahora mismo.',
-      openChat: 'Abrir chat ahora',
-      features: [
-        { title: 'Atención personalizada', description: 'Un consultor te responde.' },
-        { title: 'Respuesta en el día', description: 'Horarios hábiles de 9 a 18 h.' },
-        { title: 'Primera consulta sin cargo', description: 'Nos contás y te asesoramos.' },
-      ],
-      formNote: '*También podés completar el formulario y te respondemos por WhatsApp con los detalles.',
-      form: {
-        firstName: 'Nombre',
-        lastName: 'Apellido',
-        Phone: 'Telefono',
-        email: 'Email',
-        location: '¿En qué sector está tu empresa?',
-        message: 'Cuentanos cómo podemos ayudarte:',
-        reserveTitle: 'Reserva una reunión',
-        preferredDate: 'Fecha preferida',
-        preferredTime: 'Hora preferida',
-        scheduleNote: 'Horarios disponibles: Lunes a Viernes de 9:00 a 18:00 hs',
-        servicesTitle: '¿En qué servicio estás interesado? *',
-        servicesNote: 'Podés elegir uno o más servicios',
-        servicesOptions: {
-          marketing: 'Marketing',
-          finance: 'Finanzas',
-          accounting: 'Contabilidad',
-          operations: 'Gestión de Operaciones',
-          technology: 'Tecnologia',
-          strategy: 'Estrategia',
-          webDevelopment: 'Desarrollo Web y SEO'
+    
+  contact: {
+    badge: 'CONTACTO',
+    title: 'Hablemos de tu',
+    titleAccent: 'negocio',
+    preferDirect: '¿Prefieres escribirnos directo?',
+    whatsappPrompt: 'Abre el chat de WhatsApp y charlamos ahora mismo.',
+    openChat: 'Abrir chat ahora',
+    features: [
+      { title: 'Atención personalizada', description: 'Un consultor te responde.' },
+      { title: 'Respuesta en el día', description: 'Horarios hábiles de 9 a 18 h.' },
+      { title: 'Primera consulta sin cargo', description: 'Nos contás y te asesoramos.' },
+    ],
+    formNote: '*También podés completar el formulario y te respondemos por WhatsApp con los detalles.',
+    form: {
+      firstName: 'Nombre',
+      lastName: 'Apellido',
+      Phone: 'Telefono',
+      email: 'Email',
+      location: '¿En qué sector está tu empresa?',
+      locationOptions: [
+        {
+          label: "🛍️ 1. Comercio / Retail",
+          options: [
+            { value: "Tiendas físicas", label: "Tiendas físicas" },
+            { value: "Boutiques de ropa", label: "Boutiques de ropa" },
+            { value: "Supermercados / minimarkets", label: "Supermercados / minimarkets" },
+            { value: "Ferreterías", label: "Ferreterías" },
+            { value: "Artículos electrónicos", label: "Artículos electrónicos" },
+            { value: "Mueblerías", label: "Mueblerías" },
+            { value: "Distribuidoras", label: "Distribuidoras" },
+          ],
         },
-        submitNote: 'Al enviar, se abrirá WhatsApp con tu consulta precompletada.',
-        submit: 'ENVIAR POR WHATSAPP',
+        {
+          label: "👨‍💼 2. Servicios Profesionales",
+          options: [
+            { value: "Consultorías", label: "Consultorías" },
+            { value: "Abogados", label: "Abogados" },
+            { value: "Recursos humanos", label: "Recursos humanos" },
+            { value: "Contadores", label: "Contadores" },
+            { value: "Marketing y publicidad", label: "Marketing y publicidad" },
+            { value: "Arquitectura", label: "Arquitectura" },
+            { value: "Coaching y mentoría", label: "Coaching y mentoría" },
+          ],
+        },
+        {
+          label: "💻 3. Tecnología / Software",
+          options: [
+            { value: "Desarrollo web / apps", label: "Desarrollo web / apps" },
+            { value: "SaaS", label: "SaaS" },
+            { value: "Ciberseguridad", label: "Ciberseguridad" },
+            { value: "Soporte técnico", label: "Soporte técnico" },
+            { value: "IA / automatización", label: "IA / automatización" },
+          ],
+        },
+        {
+          label: "🏗️ 4. Construcción",
+          options: [
+            { value: "Contratistas generales", label: "Contratistas generales" },
+            { value: "Remodelaciones", label: "Remodelaciones" },
+            { value: "Ingeniería civil", label: "Ingeniería civil" },
+            { value: "Electricistas / plomeros", label: "Electricistas / plomeros" },
+            { value: "Materiales de construcción", label: "Materiales de construcción" },
+          ],
+        },
+        {
+          label: "🍔 5. Alimentos y Bebidas",
+          options: [
+            { value: "Restaurantes", label: "Restaurantes" },
+            { value: "Cafeterías", label: "Cafeterías" },
+            { value: "Catering", label: "Catering" },
+            { value: "Food trucks", label: "Food trucks" },
+            { value: "Distribución de alimentos", label: "Distribución de alimentos" },
+          ],
+        },
+        {
+          label: "🏥 6. Salud y Bienestar",
+          options: [
+            { value: "Clínicas", label: "Clínicas" },
+            { value: "Dentistas", label: "Dentistas" },
+            { value: "Psicología", label: "Psicología" },
+            { value: "Farmacias", label: "Farmacias" },
+            { value: "Gimnasios", label: "Gimnasios" },
+            { value: "Spas", label: "Spas" },
+          ],
+        },
+        {
+          label: "🚚 7. Transporte y Logística",
+          options: [
+            { value: "Camiones de carga", label: "Camiones de carga" },
+            { value: "Transportes locales", label: "Transportes locales" },
+            { value: "Mensajería", label: "Mensajería" },
+            { value: "Importación / exportación", label: "Importación / exportación" },
+            { value: "Tiendas de repuestos", label: "Tiendas de repuestos" },
+          ],
+        },
+        {
+          label: "🏫 8. Educación",
+          options: [
+            { value: "Escuelas y colegios", label: "Escuelas y colegios" },
+            { value: "Academias privadas", label: "Academias privadas" },
+            { value: "Cursos online", label: "Cursos online" },
+            { value: "Institutos técnicos", label: "Institutos técnicos" },
+            { value: "Tutorías", label: "Tutorías" },
+          ],
+        },
+        {
+          label: "🏠 9. Bienes Raíces",
+          options: [
+            { value: "Venta de propiedades", label: "Venta de propiedades" },
+            { value: "Construcción y desarrollo", label: "Construcción y desarrollo" },
+            { value: "Administradores de propiedades", label: "Administradores de propiedades" },
+            { value: "Inversionistas inmobiliarios", label: "Inversionistas inmobiliarios" },
+          ],
+        },
+        {
+          label: "💰 10. Finanzas y Seguros",
+          options: [
+            { value: "Brokers", label: "Brokers" },
+            { value: "Seguros", label: "Seguros" },
+            { value: "Inversiones", label: "Inversiones" },
+            { value: "Cooperativas", label: "Cooperativas" },
+            { value: "Banca", label: "Banca" },
+          ],
+        },
+        {
+          label: "🛏️ 11. Turismo y Hospitalidad",
+          options: [
+            { value: "Hoteles", label: "Hoteles" },
+            { value: "Hostales", label: "Hostales" },
+            { value: "Agencias de viaje", label: "Agencias de viaje" },
+            { value: "Tours", label: "Tours" },
+            { value: "Airbnb", label: "Airbnb" },
+          ],
+        },
+        {
+          label: "🎬 12. Entretenimiento y Medios",
+          options: [
+            { value: "Productoras", label: "Productoras" },
+            { value: "Creadores de contenido", label: "Creadores de contenido" },
+            { value: "Eventos", label: "Eventos" },
+            { value: "Medios digitales", label: "Medios digitales" },
+          ],
+        },
+        {
+          label: "🌱 13. Agricultura y Ganadería",
+          options: [
+            { value: "Fincas", label: "Fincas" },
+            { value: "Cultivos", label: "Cultivos" },
+            { value: "Ganado porcino / bovino / avícola", label: "Ganado porcino / bovino / avícola" },
+            { value: "Agroexportación", label: "Agroexportación" },
+          ],
+        },
+        {
+          label: "💄 14. Belleza y Estética",
+          options: [
+            { value: "Barberías", label: "Barberías" },
+            { value: "Salones de belleza", label: "Salones de belleza" },
+            { value: "Spa facial", label: "Spa facial" },
+            { value: "Tiendas de cosméticos", label: "Tiendas de cosméticos" },
+          ],
+        },
+        {
+          label: "🛒 15. E-commerce",
+          options: [
+            { value: "Tiendas online", label: "Tiendas online" },
+            { value: "Dropshipping", label: "Dropshipping" },
+            { value: "Marketplace", label: "Marketplace" },
+            { value: "Venta en Amazon / Etsy", label: "Venta en Amazon / Etsy" },
+          ],
+        },
+      ],
+      message: 'Cuentanos cómo podemos ayudarte:',
+      reserveTitle: 'Reserva una reunión',
+      preferredDate: 'Fecha preferida',
+      preferredTime: 'Hora preferida',
+      scheduleNote: 'Horarios disponibles: Lunes a Viernes de 9:00 a 18:00 hs',
+      servicesTitle: '¿En qué servicio estás interesado? *',
+      servicesNote: 'Podés elegir uno o más servicios',
+      servicesOptions: {
+        marketing: 'Marketing',
+        finance: 'Finanzas',
+        accounting: 'Contabilidad',
+        operations: 'Gestión de Operaciones',
+        technology: 'Tecnologia',
+        strategy: 'Estrategia',
+        webDevelopment: 'Desarrollo Web y SEO'
       },
-      whatsappMessage: 'Hola, quisiera consultar sobre servicios de consultoría.',
+      submitNote: 'Al enviar, se abrirá WhatsApp con tu consulta precompletada.',
+      submit: 'ENVIAR POR WHATSAPP',
     },
-    // Footer
+    whatsappMessage: 'Hola, quisiera consultar sobre servicios de consultoría.',
+  },
+
+
     footer: {
       tagline: 'Consultoría empresarial especializada en marketing, finanzas y contabilidad con foco en resultados y crecimiento sostenible.',
       navigation: 'NAVEGACIÓN',
@@ -818,6 +971,158 @@ export const translations = {
         Phone: 'Phone',
         email: 'Email',
         location: 'What sector is your company in?',
+        locationOptions: [
+  {
+    label: "🛍️ 1. Commerce / Retail",
+    options: [
+      { value: "Physical stores", label: "Physical stores" },
+      { value: "Clothing boutiques", label: "Clothing boutiques" },
+      { value: "Supermarkets / minimarkets", label: "Supermarkets / minimarkets" },
+      { value: "Hardware stores", label: "Hardware stores" },
+      { value: "Electronics", label: "Electronics" },
+      { value: "Furniture stores", label: "Furniture stores" },
+      { value: "Distributors", label: "Distributors" },
+    ],
+  },
+  {
+    label: "👨‍💼 2. Professional Services",
+    options: [
+      { value: "Consulting", label: "Consulting" },
+      { value: "Lawyers", label: "Lawyers" },
+      { value: "Human resources", label: "Human resources" },
+      { value: "Accountants", label: "Accountants" },
+      { value: "Marketing and advertising", label: "Marketing and advertising" },
+      { value: "Architecture", label: "Architecture" },
+      { value: "Coaching and mentoring", label: "Coaching and mentoring" },
+    ],
+  },
+  {
+    label: "💻 3. Technology / Software",
+    options: [
+      { value: "Web / app development", label: "Web / app development" },
+      { value: "SaaS", label: "SaaS" },
+      { value: "Cybersecurity", label: "Cybersecurity" },
+      { value: "Technical support", label: "Technical support" },
+      { value: "AI / automation", label: "AI / automation" },
+    ],
+  },
+  {
+    label: "🏗️ 4. Construction",
+    options: [
+      { value: "General contractors", label: "General contractors" },
+      { value: "Remodeling", label: "Remodeling" },
+      { value: "Civil engineering", label: "Civil engineering" },
+      { value: "Electricians / plumbers", label: "Electricians / plumbers" },
+      { value: "Construction materials", label: "Construction materials" },
+    ],
+  },
+  {
+    label: "🍔 5. Food & Beverage",
+    options: [
+      { value: "Restaurants", label: "Restaurants" },
+      { value: "Coffee shops", label: "Coffee shops" },
+      { value: "Catering", label: "Catering" },
+      { value: "Food trucks", label: "Food trucks" },
+      { value: "Food distribution", label: "Food distribution" },
+    ],
+  },
+  {
+    label: "🏥 6. Health & Wellness",
+    options: [
+      { value: "Clinics", label: "Clinics" },
+      { value: "Dentists", label: "Dentists" },
+      { value: "Psychology", label: "Psychology" },
+      { value: "Pharmacies", label: "Pharmacies" },
+      { value: "Gyms", label: "Gyms" },
+      { value: "Spas", label: "Spas" },
+    ],
+  },
+  {
+    label: "🚚 7. Transportation & Logistics",
+    options: [
+      { value: "Freight trucks", label: "Freight trucks" },
+      { value: "Local transportation", label: "Local transportation" },
+      { value: "Courier services", label: "Courier services" },
+      { value: "Import / export", label: "Import / export" },
+      { value: "Auto parts stores", label: "Auto parts stores" },
+    ],
+  },
+  {
+    label: "🏫 8. Education",
+    options: [
+      { value: "Schools", label: "Schools" },
+      { value: "Private academies", label: "Private academies" },
+      { value: "Online courses", label: "Online courses" },
+      { value: "Technical institutes", label: "Technical institutes" },
+      { value: "Tutoring", label: "Tutoring" },
+    ],
+  },
+  {
+    label: "🏠 9. Real Estate",
+    options: [
+      { value: "Property sales", label: "Property sales" },
+      { value: "Construction and development", label: "Construction and development" },
+      { value: "Property management", label: "Property management" },
+      { value: "Real estate investors", label: "Real estate investors" },
+    ],
+  },
+  {
+    label: "💰 10. Finance & Insurance",
+    options: [
+      { value: "Brokers", label: "Brokers" },
+      { value: "Insurance", label: "Insurance" },
+      { value: "Investments", label: "Investments" },
+      { value: "Cooperatives", label: "Cooperatives" },
+      { value: "Banking", label: "Banking" },
+    ],
+  },
+  {
+    label: "🛏️ 11. Tourism & Hospitality",
+    options: [
+      { value: "Hotels", label: "Hotels" },
+      { value: "Hostels", label: "Hostels" },
+      { value: "Travel agencies", label: "Travel agencies" },
+      { value: "Tours", label: "Tours" },
+      { value: "Airbnb", label: "Airbnb" },
+    ],
+  },
+  {
+    label: "🎬 12. Entertainment & Media",
+    options: [
+      { value: "Production companies", label: "Production companies" },
+      { value: "Content creators", label: "Content creators" },
+      { value: "Events", label: "Events" },
+      { value: "Digital media", label: "Digital media" },
+    ],
+  },
+  {
+    label: "🌱 13. Agriculture & Livestock",
+    options: [
+      { value: "Farms", label: "Farms" },
+      { value: "Crops", label: "Crops" },
+      { value: "Pigs / cattle / poultry", label: "Pigs / cattle / poultry" },
+      { value: "Agro-export", label: "Agro-export" },
+    ],
+  },
+  {
+    label: "💄 14. Beauty & Aesthetics",
+    options: [
+      { value: "Barbershops", label: "Barbershops" },
+      { value: "Beauty salons", label: "Beauty salons" },
+      { value: "Facial spa", label: "Facial spa" },
+      { value: "Cosmetics stores", label: "Cosmetics stores" },
+    ],
+  },
+  {
+    label: "🛒 15. E-commerce",
+    options: [
+      { value: "Online stores", label: "Online stores" },
+      { value: "Dropshipping", label: "Dropshipping" },
+      { value: "Marketplace", label: "Marketplace" },
+      { value: "Selling on Amazon / Etsy", label: "Selling on Amazon / Etsy" },
+    ],
+  },
+],
         message: 'Tell us how we can help you:',
         reserveTitle: 'Book a meeting',
         preferredDate: 'Preferred date',
